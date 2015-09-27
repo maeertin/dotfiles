@@ -20,6 +20,7 @@ brew cask install dropbox
 brew cask install spotify
 brew cask install noizio
 brew cask install skype
+brew cask install alfred
 brew cask install slack
 brew cask install flux
 
