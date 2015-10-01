@@ -25,11 +25,12 @@ brew cask install slack
 brew cask install flux
 
 # dev
-brew cask install sublime-text
+brew cask install sublime-text3
 brew cask install imagealpha
 brew cask install imageoptim
 brew cask install sequel-pro
 brew cask install cyberduck
+brew cask install vagrant
 brew cask install iterm2
 
 # browsers
