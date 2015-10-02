@@ -42,7 +42,7 @@ cp ~/.gitconfig.local ~/migration
 cp ~/.z ~/migration # z history file.
 
 # sublime text settings
-cp "~/Library/Application Support/Sublime Text 3/Packages" ~/migration/Packages
+cp -R "~/Library/Application Support/Sublime Text 3/Packages" ~/migration/Packages
 
 
 # iTerm settings.
@@ -196,5 +196,4 @@ sh .osx
 
 ###
 ##############################################################################################################
-
 
