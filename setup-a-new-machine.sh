@@ -211,7 +211,7 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/su
 
 
 # setting up the sublime packages symlink
-rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 ln -sf ~/Dropbox/maeertin\ settings/Sublime\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/
 
 
