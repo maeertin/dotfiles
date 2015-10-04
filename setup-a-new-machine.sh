@@ -210,6 +210,9 @@ sh .osx
 # symlink it up!
 ./symlink-setup.sh
 
+# setting up the .extra symlink
+ln -sf "~/Dropbox/maeertin\ settings/.extra" ~/
+
 ###
 ##############################################################################################################
 
