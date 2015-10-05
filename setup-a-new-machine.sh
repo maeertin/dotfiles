@@ -11,9 +11,9 @@ mkdir -p ~/migration/home
 cd ~/migration
 
 # what is worth reinstalling?
-brew leaves      		> brew-list.txt    # all top-level brew installs
-brew cask list 			> cask-list.txt
-npm list -g --depth=0 	> npm-g-list.txt
+brew leaves         > brew-list.txt    # all top-level brew installs
+brew cask list      > cask-list.txt
+npm list -g --depth=0   > npm-g-list.txt
 
 
 # then compare brew-list to what's in `brew.sh`
@@ -53,7 +53,7 @@ cp -R "~/Library/Application Support/Sublime Text 3/Packages" ~/migration/Packag
 
 # Timestats chrome extension stats
 #   chrome-extension://ejifodhjoeeenihgfpjijjmpomaphmah/options.html#_options
-# 	gotta export into JSON through devtools:
+#   gotta export into JSON through devtools:
 #     copy(JSON.stringify(localStorage, null, '  '))
 #     pbpaste > timestats-canary.json.txt
 
@@ -77,34 +77,24 @@ if [ $(xcode-select -p &> /dev/null; printf $?) -ne 0 ]; then
     while [ $(xcode-select -p &> /dev/null; printf $?) -ne 0 ]; do
         sleep 5
     done
-	xcode-select -p &> /dev/null
-	if [ $? -eq 0 ]; then
+  xcode-select -p &> /dev/null
+  if [ $? -eq 0 ]; then
         # Prompt user to agree to the terms of the Xcode license
         # https://github.com/alrra/dotfiles/issues/10
        sudo xcodebuild -license
    fi
 fi
+
 ###
 ##############################################################################################################
 
 
 
 ##############################################################################################################
-### initial setup
+### homebrew!
 
 sudo mkdir /usr/local
 sudo chown -R `whoami` /usr/local
-
-mkdir ~/Sites
-mkdir ~/Sites/github
-
-### end of initial setup
-##############################################################################################################
-
-
-
-##############################################################################################################
-### homebrew!
 
 # (if your machine has /usr/local locked down (like google's), you can do this to place everything in ~/.homebrew
 mkdir $HOME/.homebrew && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
@@ -114,7 +104,55 @@ export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
 ./brew.sh
 ./brew-cask.sh
 
+# promt dropbox login to start syncing additional files
+open ~/Applications/Dropbox.app
+
 ### end of homebrew
+##############################################################################################################
+
+
+
+##############################################################################################################
+### install of common things
+###
+
+# github.com/jamiew/git-friendly
+# the `push` command which copies the github compare URL to my clipboard is heaven
+bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+
+
+# global npm modules that i use
+npm install -g git-open
+npm install -g bower
+npm install -g gulp
+npm install -g yo
+
+
+# github.com/rupa/z   - oh how i love you
+git clone https://github.com/rupa/z.git ~/code/z
+chmod +x ~/code/z/z.sh
+# consider reusing your current .z file if possible. it's painful to rebuild :)
+# z is hooked up in .bash_profile
+
+
+# github.com/thebitguru/play-button-itunes-patch
+# disable itunes opening on media keys
+git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-button-itunes-patch
+
+
+# for the c alias (syntax highlighted cat)
+sudo easy_install Pygments
+
+
+# change to bash 4 (installed by homebrew)
+BASHPATH=$(brew --prefix)/bin/bash
+sudo echo $BASHPATH >> /etc/shells
+chsh -s $BASHPATH # will set for current user only.
+echo $BASH_VERSION # should be 4.x not the old 3.2.X
+# Later, confirm iterm settings aren't conflicting.
+
+
+###
 ##############################################################################################################
 
 
@@ -132,88 +170,38 @@ export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
 #   maybe something else in here https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
 sh .osx
 
-# setup and run Rescuetime!
-
 ###
 ##############################################################################################################
 
 
 
 ##############################################################################################################
-### symlinks to link dotfiles into ~/
+### symlinks
 ###
 
-#   move git credentials into ~/.gitconfig.local    	http://stackoverflow.com/a/13615531/89484
+#   move git credentials into ~/.gitconfig.local      http://stackoverflow.com/a/13615531/89484
 #   now .gitconfig can be shared across all machines and only the .local changes
 
-# symlink it up!
+# setting up the repo dotfiles symlinks
 ./symlink-setup.sh
 
-# setting up the .extra symlink
-ln -sf ~/Dropbox/Shared/.extra ~/
-
-###
-##############################################################################################################
-
-
-
-##############################################################################################################
-### install of common things
-###
-
-# github.com/jamiew/git-friendly
-# the `push` command which copies the github compare URL to my clipboard is heaven
-bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
-
-
-# Type `git open` to open the GitHub page or website for a repository.
-npm install -g git-open
-
-
-# github.com/rupa/z   - oh how i love you
-git clone https://github.com/rupa/z.git ~/code/z
-chmod +x ~/code/z/z.sh
-# consider reusing your current .z file if possible. it's painful to rebuild :)
-# z is hooked up in .bash_profile
-
-
-# github.com/thebitguru/play-button-itunes-patch
-# disable itunes opening on media keys
-git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-button-itunes-patch
-
-
-# my magic photobooth symlink -> dropbox. I love it.
-#    + first move Photo Booth folder out of Pictures
-#    + then start Photo Booth. It'll ask where to put the library.
-#    + put it in Dropbox/public
-#   * Now… you can record photobooth videos quickly and they upload to dropbox DURING RECORDING
-#   * then you grab public URL and send off your video message in a heartbeat.
-
-
-# for the c alias (syntax highlighted cat)
-sudo easy_install Pygments
-
-
-# change to bash 4 (installed by homebrew)
-BASHPATH=$(brew --prefix)/bin/bash
-sudo echo $BASHPATH >> /etc/shells
-chsh -s $BASHPATH # will set for current user only.
-echo $BASH_VERSION # should be 4.x not the old 3.2.X
-# Later, confirm iterm settings aren't conflicting.
-
-
-# iterm with more margin! http://hackr.it/articles/prettier-gutter-in-iterm-2/
-#   (admittedly not as easy to maintain)
-
-
 # setting up the sublime symlink
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-
+#ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 # setting up the sublime packages symlink
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 ln -sf ~/Dropbox/Shared/Sublime\ Text\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/
 
+# setting up the .extra symlink
+ln -sf ~/Dropbox/Shared/.extra ~/
+
+# setting up the ssh key symlink
+ln -sf ~/Dropbox/Shared/.ssh/ ~/
+
+# setting up needed binary symlinks
+sudo ln -sf ~/.homebrew/bin/git-flow /usr/bin/git-flow
+sudo ln -sf ~/.homebrew/bin/git-open /usr/bin/git-open
+sudo ln -sf ~/.homebrew/bin/node /usr/bin/node
 
 ###
 ##############################################################################################################
