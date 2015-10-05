@@ -150,7 +150,7 @@ sh .osx
 ./symlink-setup.sh
 
 # setting up the .extra symlink
-ln -sf ~/Dropbox/maeertin\ settings/.extra ~/
+ln -sf ~/Dropbox/Shared/.extra ~/
 
 ###
 ##############################################################################################################
@@ -212,7 +212,7 @@ ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/su
 
 # setting up the sublime packages symlink
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
-ln -sf ~/Dropbox/maeertin\ settings/Sublime\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/
+ln -sf ~/Dropbox/Shared/Sublime\ Text\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/
 
 
 ###
