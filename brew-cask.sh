@@ -15,6 +15,7 @@ brew cask install notational-velocity
 brew cask install the-unarchiver
 brew cask install scroll-reverser
 brew cask install totalfinder
+brew cask install spectacle
 brew cask install clipmenu
 brew cask install dropbox
 brew cask install spotify
