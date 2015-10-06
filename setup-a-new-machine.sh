@@ -120,6 +120,8 @@ open ~/Applications/Dropbox.app
 # the `push` command which copies the github compare URL to my clipboard is heaven
 bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
+# symlink node so that npm finds it
+sudo ln -sf ~/.homebrew/bin/node /usr/bin/node
 
 # global npm modules that i use
 npm install -g git-open
@@ -198,10 +200,9 @@ ln -sf ~/Dropbox/Shared/.extra ~/
 # setting up the ssh key symlink
 ln -sf ~/Dropbox/Shared/.ssh/ ~/
 
-# setting up needed binary symlinks
+# setting up other binary symlinks
 sudo ln -sf ~/.homebrew/bin/git-flow /usr/bin/git-flow
 sudo ln -sf ~/.homebrew/bin/git-open /usr/bin/git-open
-sudo ln -sf ~/.homebrew/bin/node /usr/bin/node
 
 ###
 ##############################################################################################################
