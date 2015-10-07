@@ -120,7 +120,7 @@ open ~/Applications/Dropbox.app
 # the `push` command which copies the github compare URL to my clipboard is heaven
 bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
-# symlink node so that npm finds it
+# fix npm environment by symlinking node
 sudo ln -sf ~/.homebrew/bin/node /usr/bin/node
 
 # global npm modules that i use
