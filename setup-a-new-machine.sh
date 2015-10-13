@@ -125,6 +125,7 @@ sudo ln -sf ~/.homebrew/bin/node /usr/bin/node
 
 # global npm modules that i use
 npm install -g git-open
+npm install -g dploy
 npm install -g bower
 npm install -g gulp
 npm install -g yo
