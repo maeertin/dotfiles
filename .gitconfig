@@ -29,7 +29,7 @@
 	ui = always
 
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/maeertin/.gitignore
 	attributesfile = ~/.gitattributes
 	# insanely beautiful diffs
 	pager = bash -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
@@ -98,5 +98,5 @@
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.3/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
