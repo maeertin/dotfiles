@@ -92,8 +92,8 @@
 	smudge = git-lfs smudge %f
 	required = true
 [user]
-	name = Martin Barri
-	email = maeertin@gmail.com
+	name = 
+	email = 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
