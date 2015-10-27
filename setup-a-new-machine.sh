@@ -44,24 +44,6 @@ cp ~/.z ~/migration # z history file.
 # sublime text settings
 cp -R "~/Library/Application Support/Sublime Text 3/Packages" ~/migration/Packages
 
-
-# iTerm settings.
-  # Prefs, General, Use settings from Folder
-
-# Finder settings and TotalFinder settings
-#   Not sure how to do this yet. Really want to.
-
-# Timestats chrome extension stats
-#   chrome-extension://ejifodhjoeeenihgfpjijjmpomaphmah/options.html#_options
-#   gotta export into JSON through devtools:
-#     copy(JSON.stringify(localStorage, null, '  '))
-#     pbpaste > timestats-canary.json.txt
-
-# Current Chrome tabs via OneTab
-
-# software licenses like sublimetext
-
-
 ### end of old machine backup
 ##############################################################################################################
 
@@ -120,17 +102,6 @@ open ~/Applications/Dropbox.app
 # the `push` command which copies the github compare URL to my clipboard is heaven
 bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
-# fix npm environment by symlinking node
-sudo ln -sf ~/.homebrew/bin/node /usr/bin/node
-
-# global npm modules that i use
-npm install -g git-open
-npm install -g jshint
-npm install -g dploy
-npm install -g bower
-npm install -g gulp
-npm install -g yo
-
 
 # github.com/rupa/z   - oh how i love you
 git clone https://github.com/rupa/z.git ~/code/z
@@ -155,6 +126,14 @@ chsh -s $BASHPATH # will set for current user only.
 echo $BASH_VERSION # should be 4.x not the old 3.2.X
 # Later, confirm iterm settings aren't conflicting.
 
+
+# global npm modules that i use
+npm install -g git-open
+npm install -g jshint
+npm install -g dploy
+npm install -g bower
+npm install -g gulp
+npm install -g yo
 
 ###
 ##############################################################################################################
@@ -190,7 +169,7 @@ sh .osx
 ./symlink-setup.sh
 
 # setting up the sublime symlink
-#ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+ln -sf ~/Sublime Text.app/Contents/SharedSupport/bin/subl ~/bin/subl
 
 # setting up the sublime packages symlink
 rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
@@ -201,10 +180,6 @@ ln -sf ~/Dropbox/Shared/.extra ~/
 
 # setting up the ssh key symlink
 ln -sf ~/Dropbox/Shared/.ssh/ ~/
-
-# setting up other binary symlinks
-sudo ln -sf ~/.homebrew/bin/git-flow /usr/bin/git-flow
-sudo ln -sf ~/.homebrew/bin/git-open /usr/bin/git-open
 
 ###
 ##############################################################################################################
