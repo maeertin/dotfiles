@@ -38,16 +38,11 @@ brew install vim --override-system-vi
 brew install homebrew/dupes/grep
 brew install homebrew/dupes/screen
 
-
-# run this script when this file changes guy.
-brew install entr
-
 # github util. imho better than hub
 brew install gh
 
 
 # Install other useful binaries
-brew install ack
 brew install git
 brew install git-flow
 brew install imagemagick --with-webp
@@ -55,12 +50,9 @@ brew install node # This installs `npm` too using the recommended installation m
 brew install pv
 brew install rename
 brew install tree
-brew install zopfli
 brew install ffmpeg --with-libvpx
 
 brew install terminal-notifier
-
-brew install pidcat   # colored logcat guy
 
 brew install zsh
 
