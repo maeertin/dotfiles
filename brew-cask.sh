@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-# to maintain cask .... 
-#     brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup` 
+# to maintain cask ....
+#     brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup`
 
 
 # Install native apps
@@ -14,21 +14,19 @@ brew tap caskroom/versions
 brew cask install notational-velocity
 brew cask install the-unarchiver
 brew cask install scroll-reverser
-brew cask install totalfinder
 brew cask install appcleaner
 brew cask install spectacle
 brew cask install clipmenu
 brew cask install dropbox
 brew cask install spotify
 brew cask install harvest
-brew cask install noizio
 brew cask install skype
 brew cask install alfred
 brew cask install slack
 brew cask install flux
 
 # dev
-brew cask install sublime-text3
+brew cask install sublime-text
 brew cask install sourcetree
 brew cask install imagealpha
 brew cask install imageoptim

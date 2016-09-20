@@ -30,6 +30,7 @@ cp -R ~/.gnupg ~/migration/home
 cp /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist ~/migration  # wifi
 
 cp ~/Library/Preferences/net.limechat.LimeChat.plist ~/migration
+cp ~/Library/Preferences/com.tinyspeck.slackmacgap.plist ~/migration
 
 cp -R ~/Library/Services ~/migration # automator stuff
 
@@ -42,7 +43,7 @@ cp ~/.gitconfig.local ~/migration
 cp ~/.z ~/migration # z history file.
 
 # sublime text settings
-cp -R "~/Library/Application Support/Sublime Text 3/Packages" ~/migration/Packages
+cp "~/Library/Application Support/Sublime Text 3/Packages" ~/migration
 
 ### end of old machine backup
 ##############################################################################################################
@@ -51,20 +52,39 @@ cp -R "~/Library/Application Support/Sublime Text 3/Packages" ~/migration/Packag
 
 ##############################################################################################################
 ### XCode Command Line Tools
-#      thx  https://github.com/alrra/dotfiles/blob/c2da74cc333/os/os_x/install_applications.sh#L39
+#      thx https://github.com/alrra/dotfiles/blob/ff123ca9b9b/os/os_x/installs/install_xcode.sh
 
-if [ $(xcode-select -p &> /dev/null; printf $?) -ne 0 ]; then
+if ! xcode-select --print-path &> /dev/null; then
+
+    # Prompt user to install the XCode Command Line Tools
     xcode-select --install &> /dev/null
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     # Wait until the XCode Command Line Tools are installed
-    while [ $(xcode-select -p &> /dev/null; printf $?) -ne 0 ]; do
+    until xcode-select --print-path &> /dev/null; do
         sleep 5
     done
-  xcode-select -p &> /dev/null
-  if [ $? -eq 0 ]; then
-        # Prompt user to agree to the terms of the Xcode license
-        # https://github.com/alrra/dotfiles/issues/10
-       sudo xcodebuild -license
-   fi
+
+    print_result $? 'Install XCode Command Line Tools'
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Point the `xcode-select` developer directory to
+    # the appropriate directory from within `Xcode.app`
+    # https://github.com/alrra/dotfiles/issues/13
+
+    sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+    print_result $? 'Make "xcode-select" developer directory point to Xcode'
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Prompt user to agree to the terms of the Xcode license
+    # https://github.com/alrra/dotfiles/issues/10
+
+    sudo xcodebuild -license
+    print_result $? 'Agree with the XCode Command Line Tools licence'
+
 fi
 
 ###
@@ -105,7 +125,6 @@ bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
 # github.com/rupa/z   - oh how i love you
 git clone https://github.com/rupa/z.git ~/code/z
-chmod +x ~/code/z/z.sh
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile
 
@@ -121,18 +140,19 @@ sudo easy_install Pygments
 
 # change to bash 4 (installed by homebrew)
 BASHPATH=$(brew --prefix)/bin/bash
-sudo echo $BASHPATH >> /etc/shells
+#sudo echo $BASHPATH >> /etc/shells
+sudo bash -c 'echo $(brew --prefix)/bin/bash >> /etc/shells'
 chsh -s $BASHPATH # will set for current user only.
 echo $BASH_VERSION # should be 4.x not the old 3.2.X
 # Later, confirm iterm settings aren't conflicting.
 
 
 # global npm modules that i use
+npm install -g trash-cli
+npm install -g diff-so-fancy
+npm install -g git-recent
 npm install -g git-open
-npm install -g jshint
 npm install -g dploy
-npm install -g bower
-npm install -g gulp
 npm install -g yo
 
 ###

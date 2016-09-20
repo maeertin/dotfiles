@@ -1,7 +1,13 @@
 # This prompt inspired by gf3, sindresorhus, alrra, and mathiasbynens.
 # but customized to me. <3
 
-default_username='paulirish'
+default_username='maeertin'
+
+
+if which thefuck > /dev/null; then
+    eval "$(thefuck --alias)"
+fi;
+
 
 
 if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
@@ -65,7 +71,7 @@ set_prompts() {
 
     # Only show username/host if not default
     function usernamehost() {
-        
+
         # Highlight the user name when logged in as root.
         if [[ "${USER}" == *"root" ]]; then
             userStyle="${red}";
@@ -84,13 +90,13 @@ set_prompts() {
 
 
     function prompt_git() {
-        # this is >5x faster than mathias's. has to be for working in Chromium & Blink.
+        # this is >5x faster than mathias's.
 
         # check if we're in a git repo. (fast)
         git rev-parse --is-inside-work-tree &>/dev/null || return
 
         # check for what branch we're on. (fast)
-        #   if… HEAD isn’t a symbolic ref (typical branch), 
+        #   if… HEAD isn’t a symbolic ref (typical branch),
         #   then… get a tracking remote branch or tag
         #   otherwise… get the short SHA for the latest commit
         #   lastly just give up.
@@ -101,6 +107,7 @@ set_prompts() {
 
 
         ## early exit for Chromium & Blink repo, as the dirty check takes ~5s
+        ## also recommended (via goo.gl/wAVZLa ) : sudo sysctl kern.maxvnodes=$((512*1024))
         repoUrl=$(git config --get remote.origin.url)
         if grep -q chromium.googlesource.com <<<$repoUrl; then
             dirty=" ⁂"
@@ -130,7 +137,7 @@ set_prompts() {
     PS1="\[\033]0;\w\007\]"                                 # terminal title (set to the current working directory)
     PS1+="\n\[$bold\]"
     PS1+="\[$(usernamehost)\]"                              # username at host
-    PS1+="\[$green\]\w"                                     # working directory 
+    PS1+="\[$green\]\w"                                     # working directory
     PS1+="\$(prompt_git \"$white on $purple\" \"$cyan\")"   # git repository details
     PS1+="\n"
     PS1+="\[$reset$white\]\\$ \[$reset\]"
@@ -157,7 +164,7 @@ set_prompts() {
 
 
     # shoutouts:
-    #   https://github.com/dholm/dotshell/blob/master/.local/lib/sh/profile.sh is quite nice. 
+    #   https://github.com/dholm/dotshell/blob/master/.local/lib/sh/profile.sh is quite nice.
     #   zprof is also hot.
 
 }
