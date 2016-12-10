@@ -19,8 +19,6 @@ brew cask install spectacle
 brew cask install clipmenu
 brew cask install dropbox
 brew cask install spotify
-brew cask install harvest
-brew cask install skype
 brew cask install alfred
 brew cask install slack
 brew cask install flux
