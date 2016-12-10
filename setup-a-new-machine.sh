@@ -189,10 +189,10 @@ sh .osx
 ./symlink-setup.sh
 
 # setting up the sublime symlink
-ln -sf ~/Sublime Text.app/Contents/SharedSupport/bin/subl ~/bin/subl
+ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/subl
 
 # setting up the sublime packages symlink
-rm -f ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
+rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
 ln -sf ~/Dropbox/Shared/Sublime\ Text\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/
 
 # setting up the .extra symlink
