@@ -21,7 +21,6 @@ brew cask install dropbox
 brew cask install spotify
 brew cask install alfred
 brew cask install slack
-brew cask install flux
 
 # dev
 brew cask install sublime-text
@@ -33,7 +32,6 @@ brew cask install virtualbox
 brew cask install cyberduck
 brew cask install vagrant
 brew cask install iterm2
-brew cask install poedit
 
 # browsers
 brew cask install google-chrome
