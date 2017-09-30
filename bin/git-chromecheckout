@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# from your current repo, checkout the pull request that's in the foreground browser tab
+# from your current repo, checkout the pull request that's in the foreground browser tab 
 # git chromecheckout
 # git chromecheckout canary   # for canary's foremost tab.
 

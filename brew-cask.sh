@@ -11,7 +11,6 @@ brew install caskroom/cask/brew-cask
 brew tap caskroom/versions
 
 # daily
-brew cask install notational-velocity
 brew cask install the-unarchiver
 brew cask install scroll-reverser
 brew cask install appcleaner

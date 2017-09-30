@@ -27,13 +27,12 @@ end
 function clone --description "clone something, cd into it. install it."
     git clone --depth=1 $argv[1]
     cd (basename $argv[1] | sed 's/.git$//')
-    bower install &
-    npm install
+    yarn install
 end
 
 
 function md --wraps mkdir -d "Create a directory and cd into it"
-  command mkdir $argv
+  command mkdir -p $argv
   if test $status = 0
     switch $argv[(count $argv)]
       case '-*'
@@ -44,6 +43,12 @@ function md --wraps mkdir -d "Create a directory and cd into it"
   end
 end
 
+function gz --d "Get the gzipped size"
+  echo "orig size    (bytes): "
+  cat "$argv[1]" | wc -c
+  echo "gzipped size (bytes): "
+  gzip -c "$argv[1]" | wc -c
+end
 
 function sudo!!
     eval sudo $history[1]
@@ -72,8 +77,6 @@ function fuck -d 'Correct your previous console command'
     end
 end
 
-
-
 function server -d 'Start a HTTP server in the current dir, optionally specifying the port'
     if test $argv[1]
         set port $argv[1]
@@ -90,7 +93,7 @@ function server -d 'Start a HTTP server in the current dir, optionally specifyin
 # for key, value in map.items():
 #   map[key] = value + \";charset=UTF-8\";
 #   SimpleHTTPServer.test()" $port
-    statik --port "$port" .
+    statikk --port "$port" .
 end
 
 

@@ -1,9 +1,10 @@
 [alias]
 	c = commit -am
-	up = pull
-	p = push
+	fpush = push --force
 	s = status
 	sclone = clone --depth=1
+	amend = commit --amend --all
+	hreset = reset --hard
 	co = checkout
 	df = diff --color --color-words --abbrev
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
@@ -23,7 +24,8 @@
 	show = diff-so-fancy | less --tabs=4 -RFX
 
 [interactive]
-	diffFilter = "diff-so-fancy"
+  # disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
+	# diffFilter = "diff-so-fancy"
 
 # so much color
 [color]
@@ -52,19 +54,24 @@
 # git mergetool
 [merge]
 	tool = opendiff
+	renameLimit = 0
 
 # rewrites of repo paths
 [url "git@github.com:"]
-	insteadOf = "gh:"
-	insteadOf = "git://github.com"
+	insteadOf = "https://github.com/"
 	pushInsteadOf = "github:"
 	pushInsteadOf = "git://github.com/"
-    pushInsteadOf = "https://github.com/"
+	pushInsteadOf = "https://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
 [url "git@gist.github.com:"]
-	insteadOf = "gst:"
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
-	pushInsteadOf = "https://gist.github.com/"
+	
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
 
 # correct typos
 [help]
@@ -73,13 +80,14 @@
 # push easily. http://stackoverflow.com/a/23918418/89484
 [push]
 	default = current
+	followTags = true
 
 # use separate file for username / github token / etc
 [include]
   path = ~/.gitconfig.local
 
-[init]
-	templatedir = ~/.git_template
+#[init]
+#	templatedir = ~/.git_template
 
 [filter "lfs"]
 	clean = git-lfs clean %f
@@ -90,12 +98,7 @@
 	prune = true
 [diff]
 	compactionHeuristic = true
-[user]
-	name = Martin Barri
-	email = maeertin@gmail.com
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.0.5.5/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[stash]
+	showPatch = true
