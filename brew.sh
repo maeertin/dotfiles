@@ -56,6 +56,9 @@ brew install mtr
 
 
 # Install other useful binaries
+brew tap homebrew/php
+brew install composer
+
 brew install the_silver_searcher
 brew install fzf
 
