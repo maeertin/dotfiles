@@ -102,3 +102,6 @@
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [stash]
 	showPatch = true
+[user]
+	name = Martin Barri
+	email = maeertin@gmail.com
