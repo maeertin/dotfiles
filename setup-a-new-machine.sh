@@ -212,10 +212,6 @@ ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/sub
 ##############################################################################################################
 
 
-# also this unrelated thing
-git config user.email "maeertin@gmail.com"
-
-
 ##############################################################################################################
 ### remaining configuration
 ###
