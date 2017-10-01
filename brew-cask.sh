@@ -13,9 +13,7 @@ brew tap caskroom/versions
 # daily
 brew cask install the-unarchiver
 brew cask install scroll-reverser
-brew cask install appcleaner
 brew cask install spectacle
-brew cask install clipmenu
 brew cask install dropbox
 brew cask install spotify
 brew cask install alfred
@@ -37,11 +35,12 @@ brew cask install google-chrome
 brew cask install firefox
 
 # fun
-brew cask install miro-video-converter
 brew cask install disk-inventory-x
 brew cask install transmission
 brew cask install gyazo
 brew cask install vlc
 
 # Not on cask but I want regardless.
+# miro-video-converter
+# clipmenu
 # Mullvad
