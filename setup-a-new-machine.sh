@@ -149,7 +149,7 @@ open /Applications/Dropbox.app
 
 # github.com/jamiew/git-friendly
 # the `push` command which copies the github compare URL to my clipboard is heaven
-bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+bash < <( curl https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh)
 
 # https://github.com/devopsgroup-io/vagrant-hostmanager
 vagrant plugin install vagrant-hostmanager
@@ -194,6 +194,7 @@ sudo easy_install Pygments
 
 
 # change to bash 4 (installed by homebrew)
+# https://github.com/Toberumono/Miscellaneous/wiki/Installing-Bash-4.3-on-Mac-OSX
 BASHPATH=$(brew --prefix)/bin/bash
 #sudo echo $BASHPATH >> /etc/shells
 sudo bash -c 'echo $(brew --prefix)/bin/bash >> /etc/shells'
