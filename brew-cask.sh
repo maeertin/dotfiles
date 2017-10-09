@@ -30,6 +30,7 @@ brew cask install cyberduck
 brew cask install vagrant
 brew cask install iterm2
 brew cask install sketch
+brew cask install poedit
 
 # browsers
 brew cask install google-chrome
