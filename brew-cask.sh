@@ -29,6 +29,7 @@ brew cask install virtualbox
 brew cask install cyberduck
 brew cask install vagrant
 brew cask install iterm2
+brew cask install sketch
 
 # browsers
 brew cask install google-chrome
