@@ -26,6 +26,7 @@ brew cask install imagealpha
 brew cask install imageoptim
 brew cask install sequel-pro
 brew cask install virtualbox
+brew cask install screenhero
 brew cask install cyberduck
 brew cask install vagrant
 brew cask install iterm2
