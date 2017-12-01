@@ -69,7 +69,7 @@
 [url "git@gist.github.com:"]
 	pushInsteadOf = "gist:"
 	pushInsteadOf = "git://gist.github.com/"
-	
+
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
@@ -102,6 +102,3 @@
 	fetch = +refs/heads/*:refs/remotes/origin/*
 [stash]
 	showPatch = true
-[user]
-	name = Martin Barri
-	email = maeertin@gmail.com
