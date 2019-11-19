@@ -20,18 +20,11 @@ brew cask install alfred
 brew cask install slack
 
 # dev
-brew cask install sublime-text
-brew cask install sourcetree
 brew cask install imagealpha
 brew cask install imageoptim
-brew cask install sequel-pro
 brew cask install virtualbox
-brew cask install screenhero
-brew cask install cyberduck
 brew cask install vagrant
 brew cask install iterm2
-brew cask install sketch
-brew cask install poedit
 
 # browsers
 brew cask install google-chrome
