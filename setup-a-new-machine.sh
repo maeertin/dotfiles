@@ -17,7 +17,6 @@ cd ~/migration
 
 # what is worth reinstalling?
 brew leaves              > brew-list.txt    # all top-level brew installs
-brew cask list           > cask-list.txt
 npm list -g --depth=0    > npm-g-list.txt
 yarn global ls --depth=0 > yarn-g-list.txt
 
@@ -41,15 +40,8 @@ cp -Rp ~/Documents ~/migration
 
 cp -Rp /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist ~/migration/rootLibrary/Preferences/SystemConfiguration/ # wifi
 
-cp -Rp ~/Library/Preferences/net.limechat.LimeChat.plist ~/migration/Library/Preferences/
-cp -Rp ~/Library/Preferences/com.tinyspeck.slackmacgap.plist ~/migration/Library/Preferences/
-
 cp -Rp ~/Library/Services ~/migration/Library/ # automator stuff
 cp -Rp ~/Library/Fonts ~/migration/Library/ # all those fonts you've installed
-
-# editor settings & plugins
-cp -Rp ~/Library/Application\ Support/Sublime\ Text\ * ~/migration/Library/"Application Support"
-cp -Rp ~/Library/Application\ Support/Code\ -\ Insider* ~/migration/Library/"Application Support"
 
 # also consider...
 # random git branches you never pushed anywhere?
@@ -75,8 +67,9 @@ cp -Rp ~/Library/Application\ Support/Code\ -\ Insider* ~/migration/Library/"App
 # software licenses.
 #   sublimetext's is in its Application Support folder
 
-# maybe ~/Pictures and such
-cp -Rp ~/Pictures ~/migration
+# maybe ~/Desktop and such
+cp -Rp ~/Desktop ~/migration
+cp -Rp ~/Downloads ~/migration
 
 ### end of old machine backup
 ##############################################################################################################
@@ -127,20 +120,22 @@ fi
 ##############################################################################################################
 ### homebrew!
 
-# (if your machine has /usr/local locked down (like google's), you can do this to place everything in ~/.homebrew
-mkdir $HOME/.homebrew && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
-export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
+# (if your machine has /usr/local locked down (like google's), you can do this to place everything in ~/homebrew
+mkdir $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/homebrew
+export PATH=$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH
+# maybe you still need an LD_LIBRARY export thing
 
 # install all the things
 ./brew.sh
 ./brew-cask.sh
 
+# promt dropbox login to start downloading files
+open /Applications/Dropbox.app
+
 ### end of homebrew
 ##############################################################################################################
 
 
-# promt dropbox login to start syncing additional files
-open /Applications/Dropbox.app
 
 
 ##############################################################################################################
@@ -149,10 +144,11 @@ open /Applications/Dropbox.app
 
 # github.com/jamiew/git-friendly
 # the `push` command which copies the github compare URL to my clipboard is heaven
-bash < <( curl https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh)
+bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
-# https://github.com/devopsgroup-io/vagrant-hostmanager
-vagrant plugin install vagrant-hostmanager
+# autocompletion for git branch names https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks
+curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
+
 
 # Type `git open` to open the GitHub page or website for a repository.
 npm install -g git-open
@@ -160,18 +156,19 @@ npm install -g git-open
 # fancy listing of recent branches
 npm install -g git-recent
 
-# sexy git diffs
+# trash as the safe `rm` alternative
+npm install -g trash-cli
+
+# more readable git diffs
 npm install -g diff-so-fancy
 
-# trash as the safe `rm` alternative
-npm install --global trash-cli
+# my preferred statik webserver
+npm install -g statikk
 
 # install better nanorc config
 # https://github.com/scopatz/nanorc
 curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 
-# github.com/rupa/z   - oh how i love you
-git clone https://github.com/rupa/z.git ~/code/z
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile
 
@@ -194,7 +191,6 @@ sudo easy_install Pygments
 
 
 # change to bash 4 (installed by homebrew)
-# https://github.com/Toberumono/Miscellaneous/wiki/Installing-Bash-4.3-on-Mac-OSX
 BASHPATH=$(brew --prefix)/bin/bash
 #sudo echo $BASHPATH >> /etc/shells
 sudo bash -c 'echo $(brew --prefix)/bin/bash >> /etc/shells'
@@ -208,7 +204,10 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 
 
 # setting up the sublime symlink
-ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/subl
+ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+# install nvm (Node Version Nanager, https://github.com/nvm-sh/nvm)
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
 
 ###
@@ -224,9 +223,9 @@ ln -sf /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl ~/bin/sub
 # prezto and antigen communties also have great stuff
 #   github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh
 
-# set up osx defaults
-#   maybe something else in here https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
-sh .osx
+# set up macos defaults
+#   maybe something else in here https://github.com/hjuutilainen/dotfiles/tree/master/bin
+sh .macos
 
 # setup and run Rescuetime!
 
@@ -245,14 +244,9 @@ sh .osx
 # symlink it up!
 ./symlink-setup.sh
 
-# setting up the sublime packages symlink
-#rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages
-#ln -sf ~/Dropbox/Shared/Sublime\ Text\ 3/Packages ~/Library/Application\ Support/Sublime\ Text\ 3/
-
-# setting up the .extra symlink
+# set up Dropbox file symlinks
 ln -sf ~/Dropbox/Shared/.extra ~/
-
-# setting up the ssh key symlink
+ln -sf ~/Dropbox/Shared/.gitconfig.local ~/
 ln -sf ~/Dropbox/Shared/.ssh/ ~/
 
 # add manual symlink for .ssh/config and probably .config/fish

@@ -2,39 +2,36 @@
 
 
 # to maintain cask ....
-#     brew update && brew upgrade brew-cask && brew cleanup && brew cask cleanup`
+#     brew update && brew cleanup
 
 
 # Install native apps
 
-brew install caskroom/cask/brew-cask
-brew tap caskroom/versions
-
 # daily
-brew cask install the-unarchiver
-brew cask install scroll-reverser
-brew cask install spectacle
-brew cask install dropbox
-brew cask install spotify
-brew cask install alfred
-brew cask install slack
+brew install --cask alfred
+brew install --cask dropbox
+brew install --cask scroll-reverser
+brew install --cask slack
+brew install --cask spectacle
 
-# dev
-brew cask install imagealpha
-brew cask install imageoptim
-brew cask install virtualbox
-brew cask install vagrant
-brew cask install iterm2
+# devsign
+brew install --cask figma
+brew install --cask imageoptim
+brew install --cask iterm2
+brew install --cask visual-studio-code
 
 # browsers
-brew cask install google-chrome
-brew cask install firefox
+brew install --cask google-chrome
+brew install --cask firefox
 
-# fun
-brew cask install disk-inventory-x
-brew cask install transmission
-brew cask install gyazo
-brew cask install vlc
+# less often
+brew install --cask appcleaner
+brew install --cask discord
+brew install --cask disk-inventory-x
+brew install --cask mullvadvpn
+brew install --cask transmission
+brew install --cask vlc
+
 
 # Not on cask but I want regardless.
 # miro-video-converter
