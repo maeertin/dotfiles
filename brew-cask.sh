@@ -9,6 +9,7 @@
 
 # daily
 brew install --cask alfred
+brew install --cask clipy
 brew install --cask dropbox
 brew install --cask scroll-reverser
 brew install --cask slack
