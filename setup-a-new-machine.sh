@@ -178,14 +178,6 @@ curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-button-itunes-patch
 
 
-# my magic photobooth symlink -> dropbox. I love it.
-# 	 + first move Photo Booth folder out of Pictures
-# 	 + then start Photo Booth. It'll ask where to put the library.
-# 	 + put it in Dropbox/public
-# 	* Now… you can record photobooth videos quickly and they upload to dropbox DURING RECORDING
-# 	* then you grab public URL and send off your video message in a heartbeat.
-
-
 # for the c alias (syntax highlighted cat)
 sudo easy_install Pygments
 
@@ -201,10 +193,6 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 
 # iterm with more margin! http://hackr.it/articles/prettier-gutter-in-iterm-2/
 #   (admittedly not as easy to maintain)
-
-
-# setting up the sublime symlink
-ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
 # install nvm (Node Version Nanager, https://github.com/nvm-sh/nvm)
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
@@ -245,9 +233,9 @@ sh .macos
 ./symlink-setup.sh
 
 # set up Dropbox file symlinks
-ln -sf ~/Dropbox/Shared/.extra ~/
-ln -sf ~/Dropbox/Shared/.gitconfig.local ~/
-ln -sf ~/Dropbox/Shared/.ssh/ ~/
+ln -sf ~/Dropbox/dotfiles/.extra ~/
+ln -sf ~/Dropbox/dotfiles/.gitconfig.local ~/
+ln -sf ~/Dropbox/dotfiles/.ssh/ ~/
 
 # add manual symlink for .ssh/config and probably .config/fish
 
