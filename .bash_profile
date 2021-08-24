@@ -65,10 +65,10 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 # z beats cd most of the time. `brew install z`
-if which brew > /dev/null; then
+#if which brew > /dev/null; then
     zpath="$(brew --prefix)/etc/profile.d/z.sh"
     [ -s $zpath ] && source $zpath
-fi;
+#fi;
 
 ##
 ## Completion…
@@ -79,8 +79,7 @@ if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
 fi;
 
 # Sorry, very MacOS centric here. :/
-if  which brew > /dev/null; then
-
+#if  which brew > /dev/null; then
     # bash completion.
     if [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
         source "$(brew --prefix)/share/bash-completion/bash_completion";
@@ -95,7 +94,7 @@ if  which brew > /dev/null; then
     if  which hub > /dev/null; then
         source "$(brew --prefix)/etc/bash_completion.d/hub.bash_completion.sh";
     fi;
-fi;
+#fi;
 
 # Enable tab completion for `g` by marking it as an alias for `git`
 if type __git_complete &> /dev/null; then
