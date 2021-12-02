@@ -35,6 +35,4 @@ brew install --cask vlc
 
 
 # Not on cask but I want regardless.
-# miro-video-converter
-# clipmenu
-# Mullvad
+# ...

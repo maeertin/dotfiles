@@ -17,8 +17,8 @@ brew install coreutils
 brew install moreutils
 # GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew install findutils
-# GNU `sed`, overwriting the built-in `sed`
-brew install gnu-sed --with-default-names
+# GNU `sed`
+brew install gnu-sed
 
 
 # Updated shells
@@ -28,9 +28,6 @@ brew install zsh
 
 brew install bash-completion@2
 
-
-# Install wget
-brew install wget
 
 # Install more recent versions of some OS X tools
 brew install vim
@@ -55,9 +52,7 @@ brew install glances
 
 # Install other useful binaries
 brew install node # This installs `npm` too using the recommended installation method
-brew install tree
 brew install ncdu # find where your diskspace went
-brew install youtube-dl
 
 # Remove outdated versions from the cellar
 brew cleanup
