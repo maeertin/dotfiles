@@ -146,23 +146,24 @@ open /Applications/Dropbox.app
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 
-# npm alternative
-npm install -g yarn
-
 # type `git open` to open the GitHub page or website for a repository.
 npm install -g git-open
 
 # fancy listing of recent branches
 npm install -g git-recent
 
-# trash as the safe `rm` alternative
-npm install -g trash-cli
-
 # more readable git diffs
 npm install -g diff-so-fancy
 
-# my preferred statik webserver
-npm install -g statikk
+# npm alternative
+npm install -g yarn
+
+# better workflow than npm/yarn link for package authors
+npm install -g yalc
+
+# local npm server solution
+npm install -g verdaccio
+
 
 # install better nanorc config
 # https://github.com/scopatz/nanorc
