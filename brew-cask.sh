@@ -11,6 +11,7 @@
 brew install --cask alfred
 brew install --cask clipy
 brew install --cask dropbox
+brew install --cask microsoft-teams
 brew install --cask scroll-reverser
 brew install --cask slack
 brew install --cask spectacle
