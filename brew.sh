@@ -45,6 +45,7 @@ brew install entr
 brew install gh
 # nicer git diffs
 brew install git-delta
+brew install git-friendly/git-friendly/git-friendly
 brew install git
 
 # better `top`
