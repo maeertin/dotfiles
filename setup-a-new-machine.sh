@@ -155,9 +155,6 @@ npm install -g git-recent
 # more readable git diffs
 npm install -g diff-so-fancy
 
-# trash as the safe `rm` alternative
-npm install -g trash-cli
-
 # npm alternative
 npm install -g yarn
 
@@ -166,6 +163,12 @@ npm install -g yalc
 
 # local npm server solution
 npm install -g verdaccio
+
+# trash as the safe `rm` alternative
+npm install -g trash-cli
+
+# test your internet connection speed
+npm install -g speed-test
 
 
 # install better nanorc config
