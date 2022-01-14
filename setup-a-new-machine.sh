@@ -155,6 +155,9 @@ npm install -g git-recent
 # more readable git diffs
 npm install -g diff-so-fancy
 
+# trash as the safe `rm` alternative
+npm install -g trash-cli
+
 # npm alternative
 npm install -g yarn
 
