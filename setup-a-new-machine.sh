@@ -60,7 +60,7 @@ cp -Rp ~/Library/Fonts ~/migration/Library/ # all those fonts you've installed
 
 # Timestats chrome extension stats
 #   chrome-extension://ejifodhjoeeenihgfpjijjmpomaphmah/options.html#_options
-# 	gotta export into JSON through devtools:
+#   gotta export into JSON through devtools:
 #     copy(JSON.stringify(localStorage))
 #     pbpaste > timestats-canary.json.txt
 
@@ -171,21 +171,8 @@ npm install -g trash-cli
 npm install -g speed-test
 
 
-# install better nanorc config
-# https://github.com/scopatz/nanorc
-curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
-
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile
-
-
-# github.com/thebitguru/play-button-itunes-patch
-# disable itunes opening on media keys
-git clone https://github.com/thebitguru/play-button-itunes-patch ~/code/play-button-itunes-patch
-
-
-# for the c alias (syntax highlighted cat)
-sudo easy_install Pygments
 
 
 # change to bash 4 (installed by homebrew)
@@ -232,7 +219,7 @@ sh .macos
 ### symlinks to link dotfiles into ~/
 ###
 
-#   move git credentials into ~/.gitconfig.local    	http://stackoverflow.com/a/13615531/89484
+#   move git credentials into ~/.gitconfig.local      http://stackoverflow.com/a/13615531/89484
 #   now .gitconfig can be shared across all machines and only the .local changes
 
 # symlink it up!
