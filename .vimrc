@@ -5,8 +5,8 @@ syntax on
 colorscheme slate
 " }}}
 
-" Map kj to Espace {{{
-inoremap kj <Esc>
+" Map jk to Espace {{{
+inoremap jk <Esc>
 " }}}
 
 " Set some junk {{{
