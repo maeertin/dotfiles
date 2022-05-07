@@ -36,8 +36,6 @@ cp -Rp \
     ~/.z   \
         ~/migration/home
 
-cp -Rp ~/Documents ~/migration
-
 cp -Rp /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist ~/migration/rootLibrary/Preferences/SystemConfiguration/ # wifi
 
 cp -Rp ~/Library/Services ~/migration/Library/ # automator stuff
@@ -47,22 +45,10 @@ cp -Rp ~/Library/Fonts ~/migration/Library/ # all those fonts you've installed
 # random git branches you never pushed anywhere?
 # git untracked files (or local gitignored stuff). stuff you never added, but probably want..
 
-
-# OneTab history pages, because chrome tabs are valuable.
-
 # usage logs you've been keeping.
 
 # iTerm settings.
   # Prefs, General, Use settings from Folder
-
-# Finder settings and TotalFinder settings
-#   Not sure how to do this yet. Really want to.
-
-# Timestats chrome extension stats
-#   chrome-extension://ejifodhjoeeenihgfpjijjmpomaphmah/options.html#_options
-#   gotta export into JSON through devtools:
-#     copy(JSON.stringify(localStorage))
-#     pbpaste > timestats-canary.json.txt
 
 # software licenses.
 #   sublimetext's is in its Application Support folder
