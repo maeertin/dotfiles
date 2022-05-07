@@ -38,9 +38,6 @@ brew install openssh
 # z hopping around folders
 brew install z
 
-# run this script when this file changes guy.
-brew install entr
-
 # github util
 brew install gh
 # nicer git diffs

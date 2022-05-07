@@ -146,11 +146,8 @@ open /Applications/Dropbox.app
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
 
 
-# type `git open` to open the GitHub page or website for a repository.
+# type `git open` to open the GitHub page or website for a repository
 npm install -g git-open
-
-# fancy listing of recent branches
-npm install -g git-recent
 
 # more readable git diffs
 npm install -g diff-so-fancy

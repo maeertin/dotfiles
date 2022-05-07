@@ -25,6 +25,7 @@ brew install --cask visual-studio-code
 # browsers
 brew install --cask google-chrome
 brew install --cask firefox
+brew install --cask brave-browser
 
 # less often
 brew install --cask appcleaner
