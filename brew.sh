@@ -49,8 +49,9 @@ brew install git
 brew install glances
 
 # Install other useful binaries
-brew install node # This installs `npm` too using the recommended installation method
+brew install ffmpeg
 brew install ncdu # find where your diskspace went
+brew install node # This installs `npm` too using the recommended installation method
 brew install tree # present the content of a given directory
 
 # Remove outdated versions from the cellar
