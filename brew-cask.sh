@@ -32,6 +32,7 @@ brew install --cask appcleaner
 brew install --cask discord
 brew install --cask disk-inventory-x
 brew install --cask mullvadvpn
+brew install --cask numi
 brew install --cask transmission
 brew install --cask vlc
 
