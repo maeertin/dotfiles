@@ -3,11 +3,6 @@
 
 default_username='maeertin'
 
-
-if which thefuck > /dev/null; then
-    eval "$(thefuck --alias)"
-fi;
-
 # Automatically trim long paths in the prompt (requires Bash 4.x)
 PROMPT_DIRTRIM=2
 
@@ -172,5 +167,5 @@ set_prompts() {
 
 
 
-set_prompts
-unset set_prompts
+# set_prompts
+# unset set_prompts
