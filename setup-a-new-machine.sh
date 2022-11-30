@@ -209,9 +209,10 @@ sh .macos
 ./symlink-setup.sh
 
 # set up Dropbox file symlinks
-ln -sf ~/Dropbox/dotfiles/.extra ~/
-ln -sf ~/Dropbox/dotfiles/.gitconfig.local ~/
-ln -sf ~/Dropbox/dotfiles/.ssh/ ~/
+ln -sf ~/Library/CloudStorage/Dropbox/dotfiles/.extra ~/
+ln -sf ~/Library/CloudStorage/Dropbox/dotfiles/.extrarc ~/
+ln -sf ~/Library/CloudStorage/Dropbox/dotfiles/.gitconfig.local ~/
+ln -sf ~/Library/CloudStorage/Dropbox/dotfiles/.ssh/ ~/
 
 # add manual symlink for .ssh/config and probably .config/fish
 
