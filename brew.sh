@@ -29,6 +29,9 @@ brew install zsh
 brew install bash-completion@2
 
 
+# Install wget
+brew install wget
+
 # Install more recent versions of some OS X tools
 brew install vim
 brew install nano
