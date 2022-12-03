@@ -8,9 +8,9 @@
 # Install native apps
 
 # daily
-brew install --cask alfred
 brew install --cask clipy
-brew install --cask dropbox
+#brew install --cask dropbox
+brew install --cask karabiner-elements
 brew install --cask microsoft-teams
 brew install --cask scroll-reverser
 brew install --cask slack
@@ -19,8 +19,9 @@ brew install --cask spectacle
 # devsign
 brew install --cask figma
 brew install --cask imageoptim
-brew install --cask iterm2
+brew install --cask neovide
 brew install --cask visual-studio-code
+brew install --cask warp
 
 # browsers
 brew install --cask google-chrome
@@ -28,11 +29,9 @@ brew install --cask firefox
 brew install --cask brave-browser
 
 # less often
-brew install --cask appcleaner
+#brew install --cask appcleaner
 brew install --cask discord
-brew install --cask disk-inventory-x
 brew install --cask mullvadvpn
-brew install --cask numi
 brew install --cask transmission
 brew install --cask vlc
 
