@@ -107,9 +107,11 @@ fi
 ### homebrew!
 
 # (if your machine has /usr/local locked down (like google's), you can do this to place everything in ~/homebrew
-mkdir $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/homebrew
-export PATH=$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH
+# mkdir $HOME/homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C $HOME/homebrew
+# export PATH=$HOME/homebrew/bin:$HOME/homebrew/sbin:$PATH
 # maybe you still need an LD_LIBRARY export thing
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 
 # install all the things
 ./brew.sh
@@ -135,9 +137,6 @@ curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-com
 # type `git open` to open the GitHub page or website for a repository
 npm install -g git-open
 
-# more readable git diffs
-npm install -g diff-so-fancy
-
 # npm alternative
 npm install -g yarn
 
@@ -158,20 +157,11 @@ npm install -g speed-test
 # z is hooked up in .bash_profile
 
 
-# change to bash 4 (installed by homebrew)
-BASHPATH=$(brew --prefix)/bin/bash
-#sudo echo $BASHPATH >> /etc/shells
-sudo bash -c 'echo $(brew --prefix)/bin/bash >> /etc/shells'
-chsh -s $BASHPATH # will set for current user only.
-echo $BASH_VERSION # should be 4.x not the old 3.2.X
-# Later, confirm iterm settings aren't conflicting.
-
-
 # iterm with more margin! http://hackr.it/articles/prettier-gutter-in-iterm-2/
 #   (admittedly not as easy to maintain)
 
 # install nvm (Node Version Nanager, https://github.com/nvm-sh/nvm)
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
 
 
 ###
