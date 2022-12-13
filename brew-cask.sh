@@ -9,12 +9,13 @@
 
 # daily
 brew install --cask clipy
-#brew install --cask dropbox
+brew install --cask dropbox
 brew install --cask karabiner-elements
 brew install --cask microsoft-teams
 brew install --cask scroll-reverser
 brew install --cask slack
 brew install --cask spectacle
+brew install --cask spotify
 
 # devsign
 brew install --cask figma
@@ -29,7 +30,7 @@ brew install --cask firefox
 brew install --cask brave-browser
 
 # less often
-#brew install --cask appcleaner
+brew install --cask appcleaner
 brew install --cask discord
 brew install --cask mullvadvpn
 brew install --cask transmission
