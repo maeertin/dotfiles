@@ -107,8 +107,8 @@
   default = current
   followTags = true
 [pull]
-  ff = only
   default = current
+  rebase = false
 [checkout]
   defaultRemote = origin
 
