@@ -16,9 +16,6 @@ brew install gnu-sed
 
 
 # Updated shells
-# Note: don’t forget to add `/usr/local/bin/<EACHSHELL>` to `/etc/shells` before running `chsh`.
-brew install fish
-
 brew install bash-completion
 
 
@@ -26,9 +23,9 @@ brew install bash-completion
 brew install wget
 
 # Install more recent versions of some OS X tools
-brew install vim
-brew install nano
 brew install grep
+brew install nano
+brew install vim
 
 # z hopping around folders
 brew install z
@@ -39,7 +36,8 @@ brew install git-friendly/git-friendly/git-friendly
 
 # Install other useful binaries
 brew install node # This installs `npm` too using the recommended installation method
-brew install tree # present the content of a given directory
+
+brew install ffmpeg
+brew install lazygit
 brew install neovim
 brew install ripgrep
-brew install ffmpeg

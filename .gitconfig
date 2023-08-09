@@ -1,90 +1,78 @@
 [alias]
-  c = commit -am
-  fpush = push --force
-  s = status
-  sclone = clone --depth=1
-  amend = commit --amend --all --no-edit
-  undocommit = reset HEAD~
-  hreset = reset --hard
-  co = checkout
-  df = diff --color --color-words --abbrev
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
-  cherrypick = cherry-pick
-  cherry = cherry-pick
-  cp = cherry-pick
-  diffbranch = !"git diff $(git merge-base HEAD origin/master)"
+	c = commit -am
+	fpush = push --force
+	s = status
+	sclone = clone --depth=1
+	amend = commit --amend --all --no-edit
+	undocommit = reset HEAD~
+	hreset = reset --hard
+	co = checkout
+	df = diff --color --color-words --abbrev
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
+	cherrypick = cherry-pick
+	cp = cherry-pick
 
-  # show commit log of unique commits of this branch (not on master)
-  diffcommitsfrommaster = log --no-merges master..
-  # show unified diff of unique commits of this branch
-  difffrommaster = diff master...
-  # ^^^^ Holy crap two dots vs three dots, so important. https://stackoverflow.com/a/48681527
+	mergeorigin = !"git merge origin/$(git mainormaster)"
 
-  # Show the diff between the latest commit and the current state
-  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+	# Essentially GitHub's compare view: show all 'ahead' changes (incl working tree) vs the merge-base
+	diffbranch = !"git diff $(git diffbase)"
+	# Diff of branch that's not checked out. Doesn't include working tree (but obv doesnt need to)
+	diffbranch-that = !"git diff origin/$(git mainormaster)...\"$1\" #"
+	# Show commit log of unique commits of this branch (not on main)
+	diffcommitsfrommain = !"git log --no-merges origin/$(git mainormaster).."
+	#                                                                      ^^ also, 2 vs 3 dots: so important. https://stackoverflow.com/a/48681527
 
-  reup = rebase-update # depot_tools specific
-  git = !exec git
+	# Squash a branch to one commit against a branch with many non-main commits.
+	# This can't be an alias, but here's the hack.
+	#    # be on the new feature branch, be okay with rewriting it's history.
+	#    git reset --soft (git merge-base Other_Branch_Name HEAD)
+
+
+	# Two utils: 
+	#   What's the ancestor commit this branch shares with main?
+	diffbase = !"git merge-base origin/$(git mainormaster) HEAD"
+	#   Is it a `main` or a `master` repo?
+	mainormaster = !"git branch --format '%(refname:short)' --sort=-committerdate --list master main | head -n1"
+
+	# fyi to change a git checkout from master to main.. (gh's suggested commands:)
+	#    git branch -m master main; git fetch origin; git branch -u origin/main main; git remote set-head origin -a
+
+	# commit (past) WIP changes with a message stating when they happened. (Cuz I sometimes leave changes uncommitted for a while, but want the dates for reference)
+	# todo: maybe use `git commit --date=X` to set a past date. would need to pick one, tho.
+	commitwip = !"git commit -am \"WIP changes from a while ago. Last modified on:\n$(( git diff --name-only --cached; git ls-files --modified ) | uniq | xargs gstat -c '- %.19y %N')\""
 
 [core]
   excludesfile = ~/.gitignore
   attributesfile = ~/.gitattributes
   precomposeUnicode = true
 
-[pager]
-  # or not... # insanely beautiful diffs ==> npm install -g diff-so-fancy
-  # https://github.com/dandavison/delta
-  diff = delta # diff-so-fancy | less --tabs=4 -RFX
-  show = delta # diff-so-fancy | less --tabs=4 -RFX
-
-[delta]
-  max-line-length = 700
-  max-line-distance = 0.3 # better word-diff?
-    # plus-style = "#012800"
-    # minus-style = "#340001"
-    # zero-style = "#999999"
-    syntax-theme = base16
-    # hyperlinks = true # broken? https://github.com/dandavison/delta/issues/362
-    # navigate = true # eh. not great with short diffs.
-
-    file-decoration-style = yellow ol ul
-    file-style = bold yellow ul
-    hunk-header-decoration-style = blue
-    hunk-header-line-number-style = purple bold
-
-[interactive]
-  # diffFilter = delta --color-only
-    # disabled until github.com/so-fancy/diff-so-fancy/pull/172 is resolved :(
-  # diffFilter = "diff-so-fancy"
-
 # so much color
 [color]
-  ui = auto
-[color "diff"]
-  meta = yellow bold
-  commit = green bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
+	ui = auto
+[color "diff"]  # i still love these choices in 2022.
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
-  newMoved = cyan dim
-  oldMoved = blue dim
-  newMovedAlternative = cyan italic
-  oldMovedAlternative = blue italic
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = "red bold 52"
-  newNormal = "green bold"
-  newHighlight = "green bold 22"
+	newMoved = cyan dim
+	oldMoved = blue dim
+	newMovedAlternative = cyan italic
+	oldMovedAlternative = blue italic
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+	current = yellow reverse
+	local = yellow
+	remote = green
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[log]
+	# https://github.com/git/git/commit/acdd37769de8b0fe37a74bfc0475b63bdc55e9dc
+	date = human
 
 # git mergetool
 [merge]
@@ -106,6 +94,7 @@
 [push]
   default = current
   followTags = true
+  autoSetupRemote = true
 [pull]
   default = current
   rebase = false
@@ -120,20 +109,18 @@
 #	templatedir = ~/.git_template
 
 [filter "lfs"]
-  clean = git-lfs clean %f
-  smudge = git-lfs smudge %f
-  required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+	process = git-lfs filter-process
 
 [fetch]
   prune = true
-[diff]
-    # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
-    # https://blog.github.com/2018-04-05-git-217-released/
-    colorMoved = zebra
 
 [stash]
   showPatch = true
-[log]
-  date = relative
-[init]
-  defaultBranch = main
+# 
+# faster git server communication.
+# like a LOT faster. https://opensource.googleblog.com/2018/05/introducing-git-protocol-version-2.html
+[protocol]
+	version = 2

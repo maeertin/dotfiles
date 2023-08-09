@@ -26,12 +26,8 @@ yarn global list --depth=0 > yarn-g-list.txt
 # backup some dotfiles likely not under source control
 cp -Rp \
     ~/.bash_history \
-    ~/.extra ~/.extra.fish \
+    ~/.extra \
     ~/.gitconfig.local \
-    ~/.gnupg \
-    ~/.nano \
-    ~/.nanorc \
-    ~/.netrc \
     ~/.ssh \
     ~/.z   \
         ~/migration/home
@@ -47,11 +43,7 @@ cp -Rp ~/Library/Fonts ~/migration/Library/ # all those fonts you've installed
 
 # usage logs you've been keeping.
 
-# iTerm settings.
-  # Prefs, General, Use settings from Folder
-
 # software licenses.
-#   sublimetext's is in its Application Support folder
 
 # maybe ~/Desktop and such
 cp -Rp ~/Desktop ~/migration
@@ -65,6 +57,8 @@ cp -Rp ~/Downloads ~/migration
 ##############################################################################################################
 ### XCode Command Line Tools
 #      thx https://github.com/alrra/dotfiles/blob/ff123ca9b9b/os/os_x/installs/install_xcode.sh
+
+# !!! doesnt work, need to update this section..
 
 if ! xcode-select --print-path &> /dev/null; then
 
@@ -117,7 +111,7 @@ export PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH
 ./brew.sh
 ./brew-cask.sh
 
-# promt dropbox login to start downloading files
+# promt dropbox login to start downloading.
 open /Applications/Dropbox.app
 
 ### end of homebrew
@@ -143,15 +137,11 @@ npm install -g yarn
 # better workflow than npm/yarn link for package authors
 npm install -g yalc
 
-# local npm server solution
-npm install -g verdaccio
-
 # trash as the safe `rm` alternative
 npm install -g trash-cli
 
-# test your internet connection speed
-npm install -g speed-test
-
+# A simple server for static files.
+npm install -g statikk
 
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile

@@ -1,0 +1,13 @@
+layout {
+  pane split_direction="vertical" {
+    pane name="neovim" borderless=true focus=true command="nvim" args="."
+    pane {
+      pane name="dev" borderless=false
+      pane name="terminal" borderless=false
+    }
+  }
+
+  pane size=1 borderless=true {
+    plugin location="zellij:compact-bar"
+  }
+}

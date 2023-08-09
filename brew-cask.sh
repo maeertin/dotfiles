@@ -12,15 +12,15 @@ brew install --cask clipy
 brew install --cask dropbox
 brew install --cask karabiner-elements
 brew install --cask microsoft-teams
+brew install --cask rectangle
 brew install --cask scroll-reverser
 brew install --cask slack
-brew install --cask spectacle
 brew install --cask spotify
 
 # devsign
+brew install --cask alacritty
 brew install --cask figma
 brew install --cask imageoptim
-brew install --cask neovide
 brew install --cask visual-studio-code
 brew install --cask warp
 

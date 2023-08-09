@@ -1,3 +1,10 @@
+# yes plez
+.config/*
+!.config/alacritty
+!.config/astronvim
+!.config/karabiner
+!.config/zellij
+
 # working files
 .vim/viminfo
 .vim/swaps/*
@@ -26,8 +33,7 @@ Thumbs.db
 
 # fish shell
 fishd.*
+fish/config.fish.backup
 .config/fish/fish_history
 fish/fish_history
-
-# random
-shilocation
+fish/fish_variables

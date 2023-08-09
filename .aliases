@@ -1,14 +1,13 @@
-# Easier navigation: .., ..., ~ and -
+# Easier navigation: .., ... and -
 alias ..="cd .."
-alias cd..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
 alias g="git"
+alias n="nvim"
 alias v="vim"
 
 # Recursively delete `.DS_Store` files
