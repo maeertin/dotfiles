@@ -47,7 +47,25 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "tailwindcss",
+    },
+    -- Add overrides for LSP server settings, the keys are the name of the server
+    ["server-settings"] = {
+      tailwindcss = { -- modifying `require("lspconfig").tailwindcss.setup({...})`
+        settings = { -- "settings table"
+          tailwindCSS = { -- gotten from the lspconfig docs
+            experimental = {
+              classRegex = {
+                { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                -- https://cva.style/docs/getting-started/installation#intellisense
+                { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                -- https://github.com/joe-bell/cva/discussions/85#discussioncomment-6781287
+                -- { "cva\\(([\\s\\S]*?)\\}[\\s]*?\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+              },
+            },
+          },
+        },
+      },
     },
   },
   -- Configure require("lazy").setup() options
