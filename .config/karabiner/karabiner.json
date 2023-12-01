@@ -113,6 +113,44 @@
             ]
           },
           {
+            "description": "What's going on?",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": ["left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open https://www.youtube.com/watch?v=cB6KfJzWAG4"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Noo Naa NooAOoOOAooao!",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "mandatory": ["left_option"]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open https://youtu.be/7JRN8iFYUDE?t=4"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Right ctrl + hjkl to arrow keys Vim",
             "manipulators": [
               {
