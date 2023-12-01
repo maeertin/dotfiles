@@ -11,7 +11,7 @@ return {
   { import = "astrocommunity.completion.copilot-lua-cmp" },
 
   -- TailwindCss autocompletion
-  { import = "astrocommunity.pack.tailwindcss" },
+  -- { import = "astrocommunity.pack.tailwindcss" },
 
   -- Additional powerful text objects
   { import = "astrocommunity.motion.mini-ai" },
