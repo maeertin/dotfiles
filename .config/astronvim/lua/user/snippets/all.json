@@ -16,44 +16,16 @@
     "body": ["//source.unsplash.com/${1:1600}x${2:900}"]
   },
   "Print to console": {
-    "prefix": "log",
+    "prefix": "ll",
     "body": ["console.log($1)"]
   },
-  "Import react": {
-    "prefix": "irea",
-    "body": "import * as React from 'react'"
-  },
-  "Import propTypes": {
-    "prefix": "ipro",
-    "body": ["import PropTypes from 'prop-types'"]
-  },
-  "Import mui": {
-    "prefix": "imui",
-    "body": "import { $2 } from '@mui/$1'"
-  },
-  "Import noa": {
-    "prefix": "inoa",
-    "body": "import { $2 } from '@noaignite/$1'"
-  },
-  "Import lingui": {
-    "prefix": "ilin",
-    "body": "import { t } from '@lingui/macro'"
-  },
-  "Export default": {
+  "Export from": {
     "prefix": "ee",
-    "body": ["export { default } from './${1:Component}'"]
+    "body": ["export $1 from '$2'"]
   },
-  "Export default as": {
-    "prefix": "eee",
-    "body": ["export { default as ${1:Component} } from './${1:Component}'"]
-  },
-  "Import module": {
+  "Import from": {
     "prefix": "ii",
-    "body": ["import $2 from '$1'"]
-  },
-  "Import local module": {
-    "prefix": "iii",
-    "body": ["import $2 from '~/${1:components}'"]
+    "body": ["import $1 from '$2'"]
   },
   "Translate w/ literas": {
     "prefix": "tt",
@@ -81,28 +53,27 @@
   },
   "React useCallback": {
     "prefix": "ruc",
-    "body": ["const $1 = React.useCallback(($2) => {", "  $4", "}, [$3])"]
+    "body": ["const $1 = useCallback(($2) => {", "  $4", "}, [$3])"]
   },
   "React useEffect": {
     "prefix": "rue",
-    "body": ["React.useEffect(() => {", "  $2", "}, [$1])"]
+    "body": ["useEffect(() => {", "  $2", "}, [$1])"]
   },
   "React useMemo": {
     "prefix": "rum",
-    "body": ["const $1 = React.useMemo(", "  () => ({ $2 }),", "  [$2]", ")"]
+    "body": ["const $1 = useMemo(", "  () => ({ $2 }),", "  [$2]", ")"]
   },
   "React useRef": {
     "prefix": "rur",
-    "body": ["const $1Ref = React.useRef(${2:null})"]
+    "body": ["const $1Ref = useRef(${2:null})"]
   },
   "React useState": {
     "prefix": "rus",
-    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = React.useState($2)"]
+    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($2)"]
   },
   "Storybook Component Story Format 2": {
     "prefix": "csf2",
     "body": [
-      "import * as React from 'react'",
       "import ${1:MyComponent} from './${1:MyComponent}'",
       "",
       "export default {",
@@ -135,34 +106,29 @@
       "  args: {",
       "    children: 'Just some children',",
       "  },",
-      "}",
-      ""
+      "}"
     ]
   },
   "React function": {
     "prefix": "rf",
     "body": [
-      "import * as React from 'react'",
-      "",
-      "function ${1:${TM_FILENAME_BASE}}(props) {",
+      "export function ${1:${TM_FILENAME_BASE}}() {",
       "  return (",
       "    <div>",
       "      $2",
       "    </div>",
       "  )",
-      "}",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
+      "}"
     ]
   },
   "React function forwardRef": {
     "prefix": "rff",
     "body": [
-      "import * as React from 'react'",
-      "import { OverridableComponent } from '@mui/types'",
-      "import { ${1:${TM_FILENAME_BASE}}Props, ${1:${TM_FILENAME_BASE}}TypeMap } from './${1:${TM_FILENAME_BASE}}Props'",
+      "import { forwardRef } from 'react'",
+      "import type { OverridableComponent } from '@mui/types'",
+      "import type { ${1:${TM_FILENAME_BASE}}Props, ${1:${TM_FILENAME_BASE}}TypeMap } from './${1:${TM_FILENAME_BASE}}Props'",
       "",
-      "const ${1:${TM_FILENAME_BASE}} = React.${2:forwardRef}(function ${1:${TM_FILENAME_BASE}}(props: ${1:${TM_FILENAME_BASE}}Props, ref) {",
+      "export const ${1:${TM_FILENAME_BASE}} = ${2:forwardRef}(function ${1:${TM_FILENAME_BASE}}(props: ${1:${TM_FILENAME_BASE}}Props, ref) {",
       "  const { children, component: ComponentProp = 'div', ...other } = props",
       "",
       "  return (",
@@ -170,20 +136,18 @@
       "      {children}",
       "    </ComponentProp>",
       "  )",
-      "}) as OverridableComponent<${1:${TM_FILENAME_BASE}}TypeMap>",
-      "",
-      "export default ${1:${TM_FILENAME_BASE}}"
+      "}) as OverridableComponent<${1:${TM_FILENAME_BASE}}TypeMap>"
     ]
   },
   "React function type map & props": {
     "prefix": "typemap",
     "body": [
-      "import * as React from 'react'",
-      "import { OverrideProps } from '@mui/types'",
+      "import type { ElementType } from 'react'",
+      "import type { OverrideProps } from '@mui/types'",
       "",
       "export interface ${1:${TM_FILENAME_BASE}}TypeMap<",
       "  AdditionalProps = {},",
-      "  DefaultComponent extends React.ElementType = '${2:div}',",
+      "  DefaultComponent extends ElementType = '${2:div}',",
       "> {",
       "  props: AdditionalProps & {",
       "    $3",
@@ -192,10 +156,10 @@
       "}",
       "",
       "export type ${1:${TM_FILENAME_BASE}}Props<",
-      "  RootComponent extends React.ElementType = ${1:${TM_FILENAME_BASE}}TypeMap['defaultComponent'],",
+      "  RootComponent extends ElementType = ${1:${TM_FILENAME_BASE}}TypeMap['defaultComponent'],",
       "  AdditionalProps = {},",
       "> = OverrideProps<${1:${TM_FILENAME_BASE}}TypeMap<AdditionalProps, RootComponent>, RootComponent> & {",
-      "  component?: React.ElementType",
+      "  component?: ElementType",
       "}"
     ]
   },
