@@ -24,4 +24,38 @@ return {
     },
     opts = {},
   },
+
+  -- Navigate your code with search labels
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    vscode = true,
+    opts = {},
+    keys = {
+      {
+        "<leader>fs",
+        mode = { "n", "x", "o" },
+        function() require("flash").jump() end,
+        desc = "Flash",
+      },
+      {
+        "<leader>fS",
+        mode = { "n", "o", "x" },
+        function() require("flash").treesitter() end,
+        desc = "Flash Treesitter",
+      },
+      {
+        "<leader>fr",
+        mode = "o",
+        function() require("flash").remote() end,
+        desc = "Remote Flash",
+      },
+      {
+        "<leader>fR",
+        mode = { "o", "x" },
+        function() require("flash").treesitter_search() end,
+        desc = "Treesitter Search",
+      },
+    },
+  },
 }
