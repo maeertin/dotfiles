@@ -33,11 +33,7 @@
   },
   "Mui styled w/o theme": {
     "prefix": "ss",
-    "body": [
-      "const ${1:${TM_FILENAME_BASE}}${2:Root} = styled(${3:'div'})({",
-      "  ${4}",
-      "})"
-    ]
+    "body": ["const ${1:${TM_FILENAME_BASE}}${2:Root} = styled(${3:'div'})({", "  ${4}", "})"]
   },
   "Mui styled w/ theme": {
     "prefix": "sss",
@@ -95,9 +91,10 @@
       "import type { Meta, StoryObj } from '@storybook/react'",
       "import ${1:MyComponent} from './${1:MyComponent}'",
       "",
-      "const meta: Meta<typeof ${1:MyComponent}> = {",
+      "const meta = {",
       "  component: ${1:MyComponent},",
-      "}",
+      "  tags: ['autodocs'],",
+      "} satisfies Meta<typeof ${1:MyComponent}>",
       "",
       "export default meta",
       "type Story = StoryObj<typeof ${1:MyComponent}>",

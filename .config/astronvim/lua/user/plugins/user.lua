@@ -1,7 +1,7 @@
 return {
   -- Git commands inside vim
   { "tpope/vim-fugitive", lazy = false },
-  { "tpope/vim-rhubarb", event = "User AstroGitFile" },
+  { "tpope/vim-rhubarb",  event = "User AstroGitFile" },
 
   -- Delete/change/add parentheses/quotes/XML-tags/much more with ease
   { "tpope/vim-surround", event = "User AstroFile" },
@@ -33,29 +33,28 @@ return {
     opts = {},
     keys = {
       {
-        "<leader>fs",
+        "<leader>s",
         mode = { "n", "x", "o" },
         function() require("flash").jump() end,
         desc = "Flash",
       },
       {
-        "<leader>fS",
+        "<leader>S",
         mode = { "n", "o", "x" },
         function() require("flash").treesitter() end,
         desc = "Flash Treesitter",
       },
-      {
-        "<leader>fr",
-        mode = "o",
-        function() require("flash").remote() end,
-        desc = "Remote Flash",
-      },
-      {
-        "<leader>fR",
-        mode = { "o", "x" },
-        function() require("flash").treesitter_search() end,
-        desc = "Treesitter Search",
-      },
     },
+  },
+
+  -- Nvim lua plugin which adds support for twoslash queries into typescript projects
+  {
+    "marilari88/twoslash-queries.nvim",
+    event = "User AstroFile",
+    config = function()
+      require("lspconfig")["tsserver"].setup {
+        on_attach = function(client, bufnr) require("twoslash-queries").attach(client, bufnr) end,
+      }
+    end,
   },
 }
