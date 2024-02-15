@@ -13,6 +13,9 @@ return {
   -- Additional powerful text objects
   { import = "astrocommunity.motion.mini-ai" },
 
+  -- Vim match-up: even better `%`
+  { import = "astrocommunity.motion.vim-matchup" },
+
   -- Splitting/joining blocks of code
   { import = "astrocommunity.editing-support.treesj" },
 
