@@ -48,13 +48,13 @@ return {
   },
 
   -- Nvim lua plugin which adds support for twoslash queries into typescript projects
-  {
-    "marilari88/twoslash-queries.nvim",
-    event = "User AstroFile",
-    config = function()
-      require("lspconfig")["tsserver"].setup {
-        on_attach = function(client, bufnr) require("twoslash-queries").attach(client, bufnr) end,
-      }
-    end,
-  },
+  -- {
+  --   "marilari88/twoslash-queries.nvim",
+  --   event = "User AstroFile",
+  --   config = function()
+  --     require("lspconfig")["tsserver"].setup {
+  --       on_attach = function(client, bufnr) require("twoslash-queries").attach(client, bufnr) end,
+  --     }
+  --   end,
+  -- },
 }
