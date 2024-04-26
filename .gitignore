@@ -1,8 +1,8 @@
 # yes plez
 .config/*
 !.config/alacritty
-!.config/astronvim
 !.config/karabiner
+!.config/nvim
 !.config/zellij
 
 # working files

@@ -19,12 +19,20 @@
     "prefix": "ll",
     "body": ["console.log($1)"]
   },
-  "Export from": {
+  "Export all from": {
     "prefix": "ee",
+    "body": ["export * from '$1'"]
+  },
+  "Export from": {
+    "prefix": "eee",
     "body": ["export $1 from '$2'"]
   },
-  "Import from": {
+  "Import all from": {
     "prefix": "ii",
+    "body": ["import * from '$1'"]
+  },
+  "Import from": {
+    "prefix": "iii",
     "body": ["import $1 from '$2'"]
   },
   "Translate w/ literas": {
@@ -139,12 +147,11 @@
   "React function type map & props": {
     "prefix": "typemap",
     "body": [
-      "import type { ElementType } from 'react'",
-      "import type { OverrideProps } from '@mui/types'",
+      "import type { OverrideProps } from '@repo/types'",
       "",
       "export interface ${1:${TM_FILENAME_BASE}}TypeMap<",
       "  AdditionalProps = {},",
-      "  DefaultComponent extends ElementType = '${2:div}',",
+      "  DefaultComponent extends React.ElementType = '${2:div}',",
       "> {",
       "  props: AdditionalProps & {",
       "    $3",
@@ -153,10 +160,10 @@
       "}",
       "",
       "export type ${1:${TM_FILENAME_BASE}}Props<",
-      "  RootComponent extends ElementType = ${1:${TM_FILENAME_BASE}}TypeMap['defaultComponent'],",
+      "  RootComponent extends React.ElementType = ${1:${TM_FILENAME_BASE}}TypeMap['defaultComponent'],",
       "  AdditionalProps = {},",
       "> = OverrideProps<${1:${TM_FILENAME_BASE}}TypeMap<AdditionalProps, RootComponent>, RootComponent> & {",
-      "  component?: ElementType",
+      "  as?: React.ElementType",
       "}"
     ]
   },
