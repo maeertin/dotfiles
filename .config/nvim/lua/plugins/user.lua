@@ -34,7 +34,7 @@ return {
       require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
 
       -- Load my custom VS Code snippets
-      require("luasnip.loaders.from_vscode").lazy_load { paths = { "~/.config/astronvim/lua/user/snippets" } }
+      require("luasnip.loaders.from_vscode").lazy_load { paths = { "~/.config/nvim/lua/snippets" } }
 
       -- Remap `expand_or_jump` to "<C-e>" as it clashes with copilot suggestions
       local luasnip = require "luasnip"
