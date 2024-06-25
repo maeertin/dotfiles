@@ -41,3 +41,4 @@ brew install ffmpeg
 brew install lazygit
 brew install neovim
 brew install ripgrep
+brew install slides
