@@ -1,7 +1,9 @@
 [alias]
+	b = branch
 	c = commit -am
-	fpush = push --force
 	s = status
+	w = worktree
+	fpush = push --force-with-lease
 	sclone = clone --depth=1
 	amend = commit --amend --all --no-edit
 	undocommit = reset HEAD~
