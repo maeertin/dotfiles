@@ -8,7 +8,6 @@
 # Install native apps
 
 # daily
-brew install --cask clipy
 brew install --cask dropbox
 brew install --cask karabiner-elements
 brew install --cask microsoft-teams
