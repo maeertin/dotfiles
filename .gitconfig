@@ -2,7 +2,7 @@
 	b = branch
 	c = commit -am
 	s = status
-	w = worktree
+	wt = worktree
 	fpush = push --force-with-lease
 	sclone = clone --depth=1
 	amend = commit --amend --all --no-edit
