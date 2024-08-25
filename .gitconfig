@@ -3,10 +3,11 @@
 	c = commit -am
 	l = log
 	s = status
+	p = push
+	fp = push --force-with-lease
 	wt = worktree
-	fpush = push --force-with-lease
-	sclone = clone --depth=1
 	amend = commit --amend --all --no-edit
+	sclone = clone --depth=1
 	undocommit = reset HEAD~
 	hreset = reset --hard
 	co = checkout
