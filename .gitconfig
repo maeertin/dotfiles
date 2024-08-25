@@ -1,7 +1,7 @@
 [alias]
 	b = branch
 	c = commit -am
-	l = log
+	l = log --oneline
 	s = status
 	p = push
 	fp = push --force-with-lease
