@@ -1,6 +1,7 @@
 [alias]
 	b = branch
 	c = commit -am
+	l = log
 	s = status
 	wt = worktree
 	fpush = push --force-with-lease
