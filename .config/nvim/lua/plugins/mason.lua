@@ -14,7 +14,7 @@ return {
         "cssls",
         "eslint",
         "tailwindcss",
-        "tsserver",
+        "ts_ls",
       })
     end,
   },
