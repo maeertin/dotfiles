@@ -15,7 +15,7 @@ return {
         hide_dotfiles = false,
         hide_gitignored = true,
       }
-      opts.filesystem.follow_current_file = false
+      opts.filesystem.follow_current_file.enabled = false
       opts.window.width = 40
       opts.sources = {
         "filesystem",

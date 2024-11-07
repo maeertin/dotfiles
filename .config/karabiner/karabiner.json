@@ -108,6 +108,19 @@
             ]
           },
           {
+            "description": "WooOOOoooOOw",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "8",
+                  "modifiers": { "mandatory": ["left_option"] }
+                },
+                "to": [{ "shell_command": "open https://www.youtube.com/watch?v=Xp2ROiFUZ6w" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "NoA Ignite Docs",
             "manipulators": [
               {
