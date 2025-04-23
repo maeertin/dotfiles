@@ -1,6 +1,7 @@
 # yes plez
 .config/*
 !.config/alacritty
+!.config/ghostty
 !.config/karabiner
 !.config/nvim
 !.config/zellij

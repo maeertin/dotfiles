@@ -1,0 +1,7 @@
+theme = nightfox
+
+font-family = "Hack Nerd Font Mono"
+font-size = 15.5
+font-thicken = true
+
+window-decoration = false
