@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # initialize nvm
-function nv() {
-	export NVM_DIR="/Users/maeertin/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-}
+# function nv() {
+# 	export NVM_DIR="/Users/maeertin/.nvm"
+# 	[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# }
 
 # List all files, long format, colorized, permissions in octal
 function la() {
