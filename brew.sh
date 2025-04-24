@@ -35,7 +35,7 @@ brew install gh
 brew install git-friendly/git-friendly/git-friendly
 
 # Install other useful binaries
-brew install node # This installs `npm` too using the recommended installation method
+# brew install node # This installs `npm` too using the recommended installation method
 
 brew install ffmpeg
 brew install lazygit
