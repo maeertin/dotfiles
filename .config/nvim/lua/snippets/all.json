@@ -117,9 +117,14 @@
   "React function": {
     "prefix": "rf",
     "body": [
-      "export function ${1:${TM_FILENAME_BASE}}() {",
+      "export type ${1:${TM_FILENAME_BASE}}Props = {",
+      "}",
+      "",
+      "export function ${1:${TM_FILENAME_BASE}}(props: ${1:${TM_FILENAME_BASE}}Props) {",
+      "  const { ...rest } = props",
+      "",
       "  return (",
-      "    <div>",
+      "    <div {...rest}>",
       "      $2",
       "    </div>",
       "  )",
