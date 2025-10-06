@@ -1,6 +1,7 @@
 [alias]
+	a = add
 	b = branch
-	c = commit -am
+	c = commit
 	l = log --oneline
 	s = status
 	p = push
