@@ -32,13 +32,16 @@ brew install z
 
 # git utils
 brew install gh
-brew install git-friendly/git-friendly/git-friendly
 
 # Install other useful binaries
 # brew install node # This installs `npm` too using the recommended installation method
 
+brew install codex
 brew install ffmpeg
 brew install lazygit
+brew install ncdu
 brew install neovim
+brew install rbenv
 brew install ripgrep
 brew install slides
+brew install zellij
