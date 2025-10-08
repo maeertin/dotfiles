@@ -34,6 +34,7 @@ cp -Rp \
 
 cp -Rp /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist ~/migration/rootLibrary/Preferences/SystemConfiguration/ # wifi
 
+cp -Rp ~/Library/Keyboard\ Layouts ~/migration/Library/ # keyboard layouts
 cp -Rp ~/Library/Services ~/migration/Library/ # automator stuff
 cp -Rp ~/Library/Fonts ~/migration/Library/ # all those fonts you've installed
 
