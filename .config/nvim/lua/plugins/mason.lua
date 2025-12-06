@@ -13,7 +13,7 @@ return {
         "cssls",
         "eslint",
         "tailwindcss",
-        "ts_ls",
+        -- "ts_ls", -- trying out tsgo
       },
     },
   },
