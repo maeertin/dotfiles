@@ -1,4 +1,7 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- You can also add or configure plugins by creating files in this `plugins/` folder
+-- PLEASE REMOVE THE EXAMPLES YOU HAVE NO INTEREST IN BEFORE ENABLING THIS FILE
 -- Here are some examples:
 
 ---@type LazySpec
@@ -27,22 +30,60 @@ return {
     end,
   },
 
-  -- Snippet Engine for Neovim
+  -- You can disable default plugins as follows:
+  -- { "max397574/better-escape.nvim", enabled = false },
+
+  -- You can also easily customize additional setup of plugins that is outside of the plugin's setup call
   {
     "L3MON4D3/LuaSnip",
     config = function(plugin, opts)
-      require "astronvim.plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup call
+      -- include the default astronvim config that calls the setup call
+      require "astronvim.plugins.configs.luasnip"(plugin, opts)
 
       -- Load my custom VS Code snippets
       require("luasnip.loaders.from_vscode").lazy_load { paths = { "~/.config/nvim/lua/snippets" } }
 
       -- Remap `expand_or_jump` to "<C-e>" as it clashes with copilot suggestions
-      local luasnip = require "luasnip"
-      vim.keymap.set({ "i", "s" }, "<C-e>", function()
-        if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
-      end, { silent = true })
+      -- local luasnip = require "luasnip"
+      -- vim.keymap.set({ "i", "s" }, "<C-e>", function()
+      --   if luasnip.expand_or_jumpable() then luasnip.expand_or_jump() end
+      -- end, { silent = true })
+
+      -- add more custom luasnip configuration such as filetype extend or custom snippets
+      -- local luasnip = require "luasnip"
+      -- luasnip.filetype_extend("javascript", { "javascriptreact" })
     end,
   },
+
+  -- {
+  --   "windwp/nvim-autopairs",
+  --   config = function(plugin, opts)
+  --     require "astronvim.plugins.configs.nvim-autopairs"(plugin, opts) -- include the default astronvim config that calls the setup call
+  --     -- add more custom autopairs configuration such as custom rules
+  --     local npairs = require "nvim-autopairs"
+  --     local Rule = require "nvim-autopairs.rule"
+  --     local cond = require "nvim-autopairs.conds"
+  --     npairs.add_rules(
+  --       {
+  --         Rule("$", "$", { "tex", "latex" })
+  --           -- don't add a pair if the next character is %
+  --           :with_pair(cond.not_after_regex "%%")
+  --           -- don't add a pair if  the previous character is xxx
+  --           :with_pair(
+  --             cond.not_before_regex("xxx", 3)
+  --           )
+  --           -- don't move right when repeat character
+  --           :with_move(cond.none())
+  --           -- don't delete if the next character is xx
+  --           :with_del(cond.not_after_regex "xx")
+  --           -- disable adding a newline when you press <cr>
+  --           :with_cr(cond.none()),
+  --       },
+  --       -- disable for .vim files, but it work for another filetypes
+  --       Rule("a", "a", "-vim")
+  --     )
+  --   end,
+  -- },
 
   -- Delete/change/add parentheses/quotes/XML-tags/much more with ease
   { "tpope/vim-surround", event = "User AstroFile" },
@@ -52,39 +93,5 @@ return {
     "karb94/neoscroll.nvim",
     event = "User AstroFile",
     opts = {},
-  },
-
-  -- Highlight, list and search todo comments in your projects
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    event = "User AstroFile",
-    cmd = { "TodoQuickFix" },
-    keys = {
-      { "<leader>T", "<cmd>TodoTelescope<cr>", desc = "Open TODOs in Telescope" },
-    },
-    opts = {},
-  },
-
-  -- Navigate your code with search labels
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    vscode = true,
-    opts = {},
-    keys = {
-      {
-        "<leader>s",
-        mode = { "n", "x", "o" },
-        function() require("flash").jump() end,
-        desc = "Flash",
-      },
-      {
-        "<leader>S",
-        mode = { "n", "o", "x" },
-        function() require("flash").treesitter() end,
-        desc = "Flash Treesitter",
-      },
-    },
   },
 }

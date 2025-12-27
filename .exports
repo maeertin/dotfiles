@@ -1,5 +1,6 @@
 # nvim as default
 export EDITOR="nvim"
+#export NVIM_APPNAME=astronvim
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
@@ -10,6 +11,7 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # Android simulator
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-25.jdk/Contents/Home
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
