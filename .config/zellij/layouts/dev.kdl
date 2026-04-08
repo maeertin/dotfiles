@@ -2,8 +2,9 @@ layout {
   pane split_direction="vertical" {
     pane name="neovim" borderless=true focus=true command="nvim" args="."
     pane {
-      pane name="dev" borderless=false
-      pane name="terminal" borderless=false
+      pane name="dev 1" borderless=false
+      pane name="dev 2" borderless=false
+      pane name="dev 3" borderless=false command="opencode"
     }
   }
 
