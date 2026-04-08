@@ -3,6 +3,7 @@
 	b = branch
 	c = commit
 	l = log --oneline
+	r = rebase
 	s = status
 	p = push
 	fp = push --force-with-lease
