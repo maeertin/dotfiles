@@ -13,13 +13,23 @@ return {
       ensure_installed = {
         -- install language servers
         "lua-language-server",
+
+        -- install formatters
         "stylua",
+
+        -- install debuggers
+        "debugpy",
+
+        -- install any other package
+        "tree-sitter-cli",
+
+        -- my custom installs
         "css-lsp",
         "eslint-lsp",
         "prettier",
         "tailwindcss-language-server",
-        -- "ts_ls", -- trying out tsgo
-        "tsgo",
+        "typescript-language-server", -- Previously "ts_ls",
+        -- "tsgo", -- trying out tsgo
       },
     },
   },
