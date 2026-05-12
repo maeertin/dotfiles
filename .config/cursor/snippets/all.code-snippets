@@ -1,0 +1,198 @@
+{
+  "Print filename": {
+    "prefix": "ff",
+    "body": ["${TM_FILENAME_BASE}"]
+  },
+  "Placeholder": {
+    "prefix": "placeholder",
+    "body": ["//via.placeholder.com//${1:1600}x${2:900}"]
+  },
+  "Placekitten": {
+    "prefix": "placekitten",
+    "body": ["//placekitten.com//${1:1600}/${2:900}"]
+  },
+  "Unsplash": {
+    "prefix": "unsplash",
+    "body": ["//source.unsplash.com/${1:1600}x${2:900}"]
+  },
+  "Print to console": {
+    "prefix": "ll",
+    "body": ["console.log($1)"]
+  },
+  "Export all from": {
+    "prefix": "ee",
+    "body": ["export * from '$1'"]
+  },
+  "Export from": {
+    "prefix": "eee",
+    "body": ["export $1 from '$2'"]
+  },
+  "Import all from": {
+    "prefix": "ii",
+    "body": ["import * from '$1'"]
+  },
+  "Import from": {
+    "prefix": "iii",
+    "body": ["import $1 from '$2'"]
+  },
+  "Translate w/ literas": {
+    "prefix": "tt",
+    "body": ["t(${2:__translationGroup})`$1`"]
+  },
+  "Mui styled w/o theme": {
+    "prefix": "ss",
+    "body": ["const ${1:${TM_FILENAME_BASE}}${2:Root} = styled(${3:'div'})({", "  ${4}", "})"]
+  },
+  "Mui styled w/ theme": {
+    "prefix": "sss",
+    "body": [
+      "const ${1:${TM_FILENAME_BASE}}${2:Root} = styled(${3:'div'})(({ theme }) => ({",
+      "  ${4}",
+      "}))"
+    ]
+  },
+  "React danger": {
+    "prefix": "danger",
+    "body": ["dangerouslySetInnerHTML={{ __html: $1 }}"]
+  },
+  "React useCallback": {
+    "prefix": "ruc",
+    "body": ["const $1 = useCallback(($2) => {", "  $4", "}, [$3])"]
+  },
+  "React useEffect": {
+    "prefix": "rue",
+    "body": ["useEffect(() => {", "  $2", "}, [$1])"]
+  },
+  "React useMemo": {
+    "prefix": "rum",
+    "body": ["const $1 = useMemo(", "  () => ({ $2 }),", "  [$2]", ")"]
+  },
+  "React useRef": {
+    "prefix": "rur",
+    "body": ["const $1Ref = useRef(${2:null})"]
+  },
+  "React useState": {
+    "prefix": "rus",
+    "body": ["const [$1, set${1/(.*)/${1:/capitalize}/}] = useState($2)"]
+  },
+  "Storybook Component Story Format 2": {
+    "prefix": "csf2",
+    "body": [
+      "import ${1:MyComponent} from './${1:MyComponent}'",
+      "",
+      "export default {",
+      "  title: '${2:Components}/${1:MyComponent}',",
+      "  component: ${1:MyComponent},",
+      "}",
+      "",
+      "const Template = (args) => <${1:MyComponent} {...args} />",
+      "",
+      "export const Default = Template.bind({})",
+      "Default.args = {",
+      "  children: 'Just some children',",
+      "}"
+    ]
+  },
+  "Storybook Component Story Format 3": {
+    "prefix": "csf3",
+    "body": [
+      "import type { Meta, StoryObj } from '@storybook/react'",
+      "import ${1:MyComponent} from './${1:MyComponent}'",
+      "",
+      "const meta = {",
+      "  component: ${1:MyComponent},",
+      "  tags: ['autodocs'],",
+      "} satisfies Meta<typeof ${1:MyComponent}>",
+      "",
+      "export default meta",
+      "type Story = StoryObj<typeof ${1:MyComponent}>",
+      "",
+      "export const Default: Story = {",
+      "  args: {",
+      "    children: 'Just some children',",
+      "  },",
+      "}"
+    ]
+  },
+  "React function": {
+    "prefix": "rf",
+    "body": [
+      "export type ${1:${TM_FILENAME_BASE}}Props = {",
+      "}",
+      "",
+      "export function ${1:${TM_FILENAME_BASE}}(props: ${1:${TM_FILENAME_BASE}}Props) {",
+      "  const { ...rest } = props",
+      "",
+      "  return (",
+      "    <div {...rest}>",
+      "      $2",
+      "    </div>",
+      "  )",
+      "}"
+    ]
+  },
+  "React function forwardRef": {
+    "prefix": "rff",
+    "body": [
+      "import { forwardRef } from 'react'",
+      "import type { OverridableComponent } from '@mui/types'",
+      "import type { ${1:${TM_FILENAME_BASE}}Props, ${1:${TM_FILENAME_BASE}}TypeMap } from './${1:${TM_FILENAME_BASE}}Props'",
+      "",
+      "export const ${1:${TM_FILENAME_BASE}} = ${2:forwardRef}(function ${1:${TM_FILENAME_BASE}}(props: ${1:${TM_FILENAME_BASE}}Props, ref) {",
+      "  const { children, component: ComponentProp = 'div', ...other } = props",
+      "",
+      "  return (",
+      "    <ComponentProp ref={ref} {...other}>",
+      "      {children}",
+      "    </ComponentProp>",
+      "  )",
+      "}) as OverridableComponent<${1:${TM_FILENAME_BASE}}TypeMap>"
+    ]
+  },
+  "React function type map & props": {
+    "prefix": "typemap",
+    "body": [
+      "import type { OverrideProps } from '@repo/types'",
+      "",
+      "export interface ${1:${TM_FILENAME_BASE}}TypeMap<",
+      "  AdditionalProps = {},",
+      "  DefaultComponent extends React.ElementType = '${2:div}',",
+      "> {",
+      "  props: AdditionalProps & {",
+      "    $3",
+      "  }",
+      "  defaultComponent: DefaultComponent",
+      "}",
+      "",
+      "export type ${1:${TM_FILENAME_BASE}}Props<",
+      "  RootComponent extends React.ElementType = ${1:${TM_FILENAME_BASE}}TypeMap['defaultComponent'],",
+      "  AdditionalProps = {},",
+      "> = OverrideProps<${1:${TM_FILENAME_BASE}}TypeMap<AdditionalProps, RootComponent>, RootComponent> & {",
+      "  as?: React.ElementType",
+      "}"
+    ]
+  },
+  "Sanity define type": {
+    "prefix": "dt",
+    "body": [
+      "defineType({",
+      "  title: '${1/(.*)/${1:/capitalize}/}',",
+      "  name: '$1',",
+      "  type: 'object',",
+      "  fields: [",
+      "    $2",
+      "  ],",
+      "})"
+    ]
+  },
+  "Sanity define field": {
+    "prefix": "df",
+    "body": [
+      "defineField({",
+      "  title: '${1/(.*)/${1:/capitalize}/}',",
+      "  name: '$1',",
+      "  type: '$2',$3",
+      "}),$4"
+    ]
+  }
+}

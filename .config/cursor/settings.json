@@ -1,0 +1,274 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false, // Include whitespace-only changes in diffs.
+  "editor.accessibilitySupport": "off", // Disable screen-reader optimized editor mode.
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // Use Prettier as the default formatter.
+  "editor.detectIndentation": false, // Keep configured indentation instead of detecting it per file.
+  "editor.fontFamily": "'Roboto Mono', monospace", // Use Roboto Mono for editor text.
+  "editor.formatOnSave": true, // Format files automatically when saving.
+  "editor.guides.bracketPairs": true, // Show guides connecting matching bracket pairs.
+  "editor.hover.delay": 1000, // Wait one second before showing hover tooltips.
+  "editor.inlineSuggest.enabled": true, // Enable ghost-text inline suggestions.
+  "editor.insertSpaces": true, // Insert spaces when pressing Tab.
+  "editor.lineNumbers": "relative", // Show line numbers relative to the cursor.
+  "editor.minimap.enabled": false, // Hide the code minimap.
+  "editor.parameterHints.enabled": false, // Disable automatic parameter hint popups.
+  "editor.renderWhitespace": "all", // Show all whitespace characters.
+  "editor.fontSize": 16, // Set the editor font size to 16px.
+  // Show autocomplete suggestions while typing in comments, code, and strings.
+  "editor.quickSuggestions": {
+    "comments": "on",
+    "other": "on",
+    "strings": "on",
+  },
+  "editor.rulers": [80, 100], // Show vertical rulers at 80 and 100 columns.
+  "editor.smoothScrolling": true, // Enable smooth scrolling in the editor.
+  "editor.tabSize": 2, // Use a two-space tab width.
+  "explorer.autoReveal": false, // Do not auto-select the active file in Explorer.
+  "explorer.excludeGitIgnore": true, // Hide Git-ignored files in Explorer.
+  "javascript.updateImportsOnFileMove.enabled": "always", // Update JS/TS imports when files move.
+  // Define Settings Cycle presets used by custom keybindings.
+  "settings.cycle": [
+    // Toggle whether Explorer hides files matched by .gitignore.
+    {
+      "id": "toggleGitIgnore",
+      "values": [
+        { "explorer.excludeGitIgnore": false },
+        { "explorer.excludeGitIgnore": true },
+      ],
+    },
+  ],
+  "settings.cycle.warnOnWorkspaceSettingsCollisions": true, // Warn when setting cycles conflict with workspace settings.
+  // Teach Tailwind IntelliSense how to find classes inside cva() and cx().
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+  ],
+  "vim.foldfix": true, // Apply VSCodeVim's folding workaround.
+  "vim.highlightedyank.enable": true, // Highlight text after yanking it.
+  "vim.hlsearch": true, // Highlight search matches.
+  "vim.incsearch": true, // Show search matches while typing.
+  "vim.leader": "<space>", // Use Space as the Vim leader key.
+  "vim.surround": true, // Enable vim-surround style operations.
+  "vim.useCtrlKeys": true, // Let VSCodeVim handle Ctrl-based keybindings.
+  "vim.useSystemClipboard": true, // Use the system clipboard for Vim operations.
+  // Let Cursor handle selected Ctrl shortcuts instead of VSCodeVim.
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+  },
+  // Map insert-mode key sequences to Vim actions.
+  "vim.insertModeKeyBindings": [
+    // Leave insert mode by typing jk.
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"],
+    },
+  ],
+  // Map normal-mode keys while allowing recursive Vim remaps.
+  "vim.normalModeKeyBindings": [
+    // Switch to next editor in the current group
+    {
+      "before": ["<S-l>"],
+      "commands": ["workbench.action.nextEditorInGroup"],
+    },
+    // Switch to previous editor in the current group
+    {
+      "before": ["<S-h>"],
+      "commands": ["workbench.action.previousEditorInGroup"],
+    },
+    // Clear search highlights
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"],
+    },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    /**
+     * Navigation mappings
+     */
+    // Split editor vertically
+    {
+      "before": ["<leader>", "v"],
+      "commands": [":vsplit"],
+    },
+    // Split editor horizontally
+    {
+      "before": ["<leader>", "s"],
+      "commands": [":split"],
+    },
+    // Toggle activity bar visibility (VS Code only)
+    {
+      "before": ["<leader>", "a"],
+      "commands": ["workbench.action.toggleActivityBarVisibility"],
+    },
+    // Toggle primary sidebar visibility
+    {
+      "before": ["<leader>", "e"],
+      "commands": ["workbench.action.toggleSidebarVisibility"],
+    },
+    // Open / focus Explorer view
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["workbench.view.explorer"],
+    },
+    /**
+     * Buffer mappings
+     */
+    // Create new file
+    {
+      "before": ["<leader>", "n"],
+      "commands": ["workbench.action.files.newUntitledFile"],
+    },
+    // Close current file
+    {
+      "before": ["<leader>", "c"],
+      "commands": ["workbench.action.closeActiveEditor"],
+    },
+    // Rename current file
+    {
+      "before": ["<leader>", "R"],
+      "commands": ["revealInExplorer", "renameFile"],
+    },
+    // Close all other files
+    {
+      "before": ["<leader>", "b", "c"],
+      "commands": ["workbench.action.closeOtherEditors"],
+    },
+    // Close all files
+    {
+      "before": ["<leader>", "b", "C"],
+      "commands": ["workbench.action.closeAllEditors"],
+    },
+    // Close files to the left
+    {
+      "before": ["<leader>", "b", "l"],
+      "commands": ["workbench.action.closeEditorsToTheLeft"],
+    },
+    // Close files to the right
+    {
+      "before": ["<leader>", "b", "r"],
+      "commands": ["workbench.action.closeEditorsToTheRight"],
+    },
+    /**
+     * LSP mappings
+     */
+    // LSP code action
+    {
+      "before": ["<leader>", "l", "a"],
+      "commands": ["editor.action.codeAction"],
+    },
+    // Rename current symbol
+    {
+      "before": ["<leader>", "l", "r"],
+      "commands": ["editor.action.rename"],
+    },
+    // Show symbols in current file
+    {
+      "before": ["<leader>", "l", "s"],
+      "commands": ["workbench.action.gotoSymbol"],
+    },
+    // Show symbols across workspace
+    {
+      "before": ["<leader>", "l", "G"],
+      "commands": ["workbench.action.showAllSymbols"],
+    },
+    // Search diagnostics
+    {
+      "before": ["<leader>", "l", "D"],
+      "commands": ["workbench.actions.view.problems"],
+    },
+    /**
+     * Find mappings
+     */
+    // Quick open files
+    {
+      "before": ["<leader>", "f", "f"],
+      "commands": ["workbench.action.quickOpen"],
+    },
+    // Search text across files
+    {
+      "before": ["<leader>", "f", "w"],
+      "commands": ["workbench.action.findInFiles"],
+    },
+    // Reveal current file in Explorer
+    {
+      "before": ["<leader>", "f", "e"],
+      "commands": ["revealInExplorer"],
+    },
+    // Open previous editor from history
+    {
+      "before": ["<leader>", "f", "o"],
+      "commands": ["workbench.action.openPreviousEditorFromHistory"],
+    },
+    // Quick open least recently used editors
+    {
+      "before": ["<leader>", "f", "b"],
+      "commands": ["workbench.action.quickOpenLeastRecentlyUsedEditor"],
+    },
+    // Quick open recent projects and files
+    {
+      "before": ["<leader>", "f", "p"],
+      "commands": ["workbench.action.quickOpenRecent"],
+    },
+    /**
+     * Other
+     */
+    // Show definition preview hover
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showDefinitionPreviewHover"],
+    },
+    // Open Lazygit
+    {
+      "before": ["<leader>", "g", "g"],
+      "commands": ["lazygit.openLazygit"],
+    },
+    // List TODO highlight annotations
+    {
+      "before": ["<leader>", "T"],
+      "commands": ["todohighlight.listAnnotations"],
+    },
+  ],
+  // Map keys while an operator is waiting for a motion.
+  "vim.operatorPendingModeKeyBindings": [
+    // Treat L as end-of-line during operator motions.
+    {
+      "before": ["L"],
+      "after": ["$"],
+    },
+    // Treat H as first non-blank character during operator motions.
+    {
+      "before": ["H"],
+      "after": ["^"],
+    },
+  ],
+  // Map visual-mode keys for selected text.
+  "vim.visualModeKeyBindings": [
+    // Indent selected lines
+    {
+      "before": [">"],
+      "commands": ["editor.action.indentLines"],
+    },
+    // Outdent selected lines
+    {
+      "before": ["<"],
+      "commands": ["editor.action.outdentLines"],
+    },
+  ],
+  // Map non-recursive visual-mode keys.
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Paste over selection without replacing the yank register.
+    {
+      "before": ["p"],
+      "after": ["p", "g", "v", "y"],
+    },
+  ],
+  "window.autoDetectColorScheme": false, // Do not switch themes based on the OS color scheme.
+  "window.commandCenter": false, // Hide the command center in the title bar.
+  "workbench.colorTheme": "Nightfox", // Use the Nightfox color theme.
+  "workbench.editor.editorActionsLocation": "hidden", // Hide editor action buttons.
+  "workbench.editor.empty.hint": "hidden", // Hide the empty editor hint.
+  "workbench.editor.tabSizing": "shrink", // Shrink tabs so more fit in the tab bar.
+  "workbench.iconTheme": "material-icon-theme", // Use Material Icon Theme icons.
+  "workbench.startupEditor": "none", // Open without a startup editor.
+}

@@ -1,0 +1,242 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+  /**
+   * Navigation mappings
+   */
+  // Focus Explorer file tree
+  {
+    "key": "cmd+`",
+    "command": "workbench.files.action.focusFilesExplorer",
+  },
+  // Focus first editor group
+  {
+    "key": "cmd+1",
+    "command": "workbench.action.focusFirstEditorGroup",
+  },
+  // Focus second editor group
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.focusSecondEditorGroup",
+  },
+  // Focus third editor group
+  {
+    "key": "cmd+3",
+    "command": "workbench.action.focusThirdEditorGroup",
+  },
+  // Focus fourth editor group
+  {
+    "key": "cmd+4",
+    "command": "workbench.action.focusFourthEditorGroup",
+  },
+  // Switch to previous editor
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.previousEditor",
+  },
+  // Switch to next editor
+  {
+    "command": "workbench.action.nextEditor",
+    "key": "ctrl+l",
+  },
+  // Focus editor group to the left
+  {
+    "key": "alt+left",
+    "command": "workbench.action.focusLeftGroup",
+    "when": "editorTextFocus",
+  },
+  // Focus editor group below
+  {
+    "key": "alt+down",
+    "command": "workbench.action.focusBelowGroup",
+    "when": "editorTextFocus",
+  },
+  // Focus editor group above
+  {
+    "key": "alt+up",
+    "command": "workbench.action.focusAboveGroup",
+    "when": "editorTextFocus",
+  },
+  // Focus editor group to the right
+  {
+    "key": "alt+right",
+    "command": "workbench.action.focusRightGroup",
+    "when": "editorTextFocus",
+  },
+  /**
+   * Buffer mappings
+   */
+  // New untitled file (Explorer / Neo-tree focused)
+  {
+    "key": "space n",
+    "command": "workbench.action.files.newUntitledFile",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  /**
+   * Explorer mappings (Neo-Tree)
+   */
+  // Create new file in Explorer
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  // Delete selected file/folder in Explorer
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  // Rename selected file/folder in Explorer
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  // Copy selected file/folder in Explorer
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  // Paste file/folder in Explorer
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  // Cycle Explorer “exclude Git ignore” (Settings Cycle)
+  {
+    "key": "shift+h",
+    "command": "settings.cycle.toggleGitIgnore",
+    "when": "explorerViewletFocus && !inputFocus",
+  },
+  // Toggle activity bar visibility (VS Code only)
+  {
+    "key": "space a",
+    "command": "workbench.action.toggleActivityBarVisibility",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Toggle primary sidebar visibility
+  {
+    "key": "space e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Open / focus Explorer view
+  {
+    "key": "space o",
+    "command": "workbench.view.explorer",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Go to symbol in editor
+  {
+    "key": "space l o",
+    "command": "workbench.action.gotoSymbol",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Show all symbols in workspace
+  {
+    "key": "space l shift+g",
+    "command": "workbench.action.showAllSymbols",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  /**
+   * "Telescope" mappings
+   */
+  // Quick open (files)
+  {
+    "key": "space f f",
+    "command": "workbench.action.quickOpen",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Search across files (find in files)
+  {
+    "key": "space f w",
+    "command": "workbench.action.findInFiles",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Open recently opened files
+  {
+    "key": "space f o",
+    "command": "workbench.action.openPreviousEditorFromHistory",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Quick open least recently used editors
+  {
+    "key": "space f b",
+    "command": "workbench.action.quickOpenLeastRecentlyUsedEditor",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Quick open recent workspaces / files
+  {
+    "key": "space f p",
+    "command": "workbench.action.quickOpenRecent",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  /**
+   * Terminal mappings
+   */
+  // Toggle terminal panel
+  {
+    "key": "ctrl+p w",
+    "command": "workbench.action.terminal.toggleTerminal",
+  },
+  // New terminal tab
+  {
+    "key": "ctrl+n",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus",
+  },
+  // Kill active terminal
+  {
+    "key": "ctrl+x",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus",
+  },
+  // Focus previous terminal in panel
+  {
+    "key": "ctrl+u",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus",
+  },
+  // Focus next terminal in panel
+  {
+    "key": "ctrl+d",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus",
+  },
+  /**
+   * Other
+   */
+  // Open Lazygit
+  {
+    "key": "space g g",
+    "command": "lazygit.openLazygit",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // List TODO highlight annotations
+  {
+    "key": "space shift+t",
+    "command": "todohighlight.listAnnotations",
+    "when": "!editorTextFocus && !inputFocus",
+  },
+  // Change agent modes with tab
+  {
+    "key": "tab",
+    "command": "composer.openModeMenu",
+    "when": "chatModeMenuFocused && !editorTextFocus && !terminalFocusInAny || composerFocused && !editorTextFocus && !terminalFocusInAny || !editorTextFocus && !terminalFocusInAny && activeEditor == 'workbench.editor.composer' || !editorTextFocus && !terminalFocusInAny && focusedView =~ /^workbench.panel.aichat.view/",
+  },
+  /**
+   * Remove these mappings
+   */
+  {
+    "key": "alt+h",
+    "command": "-editor.action.inlineDiffs.previousDiffFile",
+    "when": "editorTextFocus && inlineDiffs.hasInlineDiffsInAnyEditor",
+  },
+  {
+    "key": "alt+l",
+    "command": "-editor.action.inlineDiffs.nextDiffFile",
+    "when": "editorTextFocus && inlineDiffs.hasInlineDiffsInAnyEditor",
+  },
+]
