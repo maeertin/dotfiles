@@ -4,7 +4,7 @@ layout {
     pane {
       pane name="dev 1" borderless=false
       pane name="dev 2" borderless=false
-      pane name="dev 3" borderless=false command="opencode"
+      pane name="dev 3" borderless=false
     }
   }
 
