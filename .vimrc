@@ -1,8 +1,14 @@
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+Plug 'EdenEast/nightfox.nvim'
+call plug#end()
+" }}}
+
 " Syntax highlighting {{{
-set t_Co=256
+set termguicolors
 set background=dark
 syntax on
-colorscheme slate
+colorscheme nightfox
 " }}}
 
 " Map jk to Espace {{{
