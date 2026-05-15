@@ -13,9 +13,6 @@ return {
   -- Colorscheme
   { import = "astrocommunity.colorscheme.nightfox-nvim" },
 
-  -- Autocompletion
-  -- { import = "astrocommunity.completion.copilot-lua-cmp" },
-
   -- Additional powerful text objects
   -- { import = "astrocommunity.motion.mini-ai" },
 
@@ -27,11 +24,11 @@ return {
 
   -- Editor rulers
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = { 80, 100 },
-      disabled_filetypes = { "help" },
-    },
-  },
+  { "m4xshen/smartcolumn.nvim", opts = { colorcolumn = { 80, 100 } } },
+
+  -- Add/change/delete surrounding delimiter pairs with ease.
+  { import = "astrocommunity.motion.nvim-surround" },
+
+  -- Smooth scrolling
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
 }
