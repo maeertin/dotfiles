@@ -220,12 +220,6 @@
     "command": "todohighlight.listAnnotations",
     "when": "!editorTextFocus && !inputFocus",
   },
-  // Change agent modes with tab
-  {
-    "key": "tab",
-    "command": "composer.openModeMenu",
-    "when": "chatModeMenuFocused && !editorTextFocus && !terminalFocusInAny || composerFocused && !editorTextFocus && !terminalFocusInAny || !editorTextFocus && !terminalFocusInAny && activeEditor == 'workbench.editor.composer' || !editorTextFocus && !terminalFocusInAny && focusedView =~ /^workbench.panel.aichat.view/",
-  },
   /**
    * Remove these mappings
    */
