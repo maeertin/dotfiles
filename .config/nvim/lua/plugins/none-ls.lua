@@ -1,24 +1,45 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize None-ls sources
+
+local function with_oxfmt_fallback(source)
+  local runtime_condition = source._opts and source._opts.runtime_condition
+  return source.with {
+    runtime_condition = function(params)
+      if #vim.lsp.get_clients({ bufnr = params.bufnr, name = "oxfmt" }) > 0 then return false end
+      if runtime_condition then return runtime_condition(params) end
+      return true
+    end,
+  }
+end
+
+local function register_prettier(source_name, methods)
+  local null_ls = require "null-ls"
+  if null_ls.is_registered(source_name) then return end
+  for _, method in ipairs(methods) do
+    null_ls.register(with_oxfmt_fallback(null_ls.builtins[method][source_name]))
+  end
+end
 
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = {
+    {
+      "jay-babu/mason-null-ls.nvim",
+      opts = {
+        handlers = {
+          -- Installed Mason tools are registered separately from opts.sources.
+          prettier = register_prettier,
+          prettierd = register_prettier,
+        },
+      },
+    },
+  },
   opts = function(_, opts)
-    -- opts variable is the default configuration table for the setup function call
-    -- local null_ls = require "null-ls"
-
-    -- Check supported formatters and linters
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-
-    -- Only insert new sources, do not replace the existing ones
-    -- (If you wish to replace, use `opts.sources = {}` instead of the `list_insert_unique` function)
-    opts.sources = require("astrocore").list_insert_unique(opts.sources, {
-      -- Set a formatter
-      -- null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.prettier,
-    })
+    -- Apply the same fallback to explicitly configured sources.
+    for index, source in ipairs(opts.sources or {}) do
+      if source.name == "prettier" or source.name == "prettierd" then
+        opts.sources[index] = with_oxfmt_fallback(source)
+      end
+    end
   end,
 }
