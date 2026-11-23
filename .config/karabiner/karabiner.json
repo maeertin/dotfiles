@@ -24,7 +24,7 @@
                   "key_code": "spacebar",
                   "modifiers": { "mandatory": ["left_option", "left_shift"] }
                 },
-                "to": [{ "shell_command": "open -a 'Cursor'" }],
+                "to": [{ "shell_command": "open -a 'Orca'" }],
                 "type": "basic"
               }
             ]

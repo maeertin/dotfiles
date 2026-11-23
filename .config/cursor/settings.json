@@ -13,7 +13,7 @@
   "editor.minimap.enabled": false, // Hide the code minimap.
   "editor.parameterHints.enabled": false, // Disable automatic parameter hint popups.
   "editor.renderWhitespace": "all", // Show all whitespace characters.
-  "editor.fontSize": 16, // Set the editor font size to 16px.
+  "editor.fontSize": 14, // Set the editor font size to 16px.
   // Show autocomplete suggestions while typing in comments, code, and strings.
   "editor.quickSuggestions": {
     "comments": "on",
@@ -270,5 +270,6 @@
   "workbench.editor.empty.hint": "hidden", // Hide the empty editor hint.
   "workbench.editor.tabSizing": "shrink", // Shrink tabs so more fit in the tab bar.
   "workbench.iconTheme": "material-icon-theme", // Use Material Icon Theme icons.
-  "workbench.startupEditor": "none", // Open without a startup editor.
+  "workbench.startupEditor": "none",
+  "cursor.composer.queueManualSendBehavior2": "steer", // Open without a startup editor.
 }
