@@ -17,6 +17,14 @@ if which brew > /dev/null; then
     [ -s $zpath ] && source $zpath
 fi;
 
+# Load private shell configuration
+[ -r "$HOME/.extrarc" ] && source "$HOME/.extrarc"
+
+# Initialize nvm & nvm bash completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 ##
 ## Completion…
 ##
