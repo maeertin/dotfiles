@@ -5,3 +5,7 @@ font-size = 15.5
 font-thicken = true
 
 window-decoration = false
+
+# Conflicts with Zellij window movement
+keybind = alt+arrow_left=unbind
+keybind = alt+arrow_right=unbind
