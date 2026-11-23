@@ -36,6 +36,7 @@ brew install gh
 # Install other useful binaries
 # brew install node # This installs `npm` too using the recommended installation method
 
+brew install anomalyco/tap/opencode-v2
 brew install codex
 brew install ffmpeg
 brew install lazygit

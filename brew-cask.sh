@@ -20,8 +20,9 @@ brew install --cask spotify
 # devsign
 brew install --cask alacritty
 brew install --cask figma
+brew install --cask ghostty
 brew install --cask imageoptim
-brew install --cask visual-studio-code
+brew install --cask stablyai/orca/orca
 
 # browsers
 brew install --cask google-chrome

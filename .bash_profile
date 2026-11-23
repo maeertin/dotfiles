@@ -6,11 +6,6 @@ for file in ~/.{extra,bash_prompt,exports,aliases,functions}; do
 done
 unset file
 
-# to help sublimelinter etc with finding my PATHS
-case $- in
-   *i*) source ~/.extra
-esac
-
 # z beats cd most of the time. `brew install z`
 if which brew > /dev/null; then
     zpath="$(brew --prefix)/etc/profile.d/z.sh"
